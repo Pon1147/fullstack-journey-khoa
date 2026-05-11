@@ -16,7 +16,7 @@
 ### Tuần 1-2: Frontend Dashboard (Next.js 14)
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 1 | Next.js 14 + App Router + TypeScript | "NextJS (Thành thạo)" |
 | 2 | Layout shell: navbar, sidebar, content | "Xây dựng Dashboard" |
 | 3 | Tailwind CSS + shadcn/ui (Table, Card, Button) | "Frontend: ReactJS/NextJS" |
@@ -28,7 +28,7 @@
 ### Tuần 3-4: Backend API (FastAPI + PostgreSQL)
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 8 | Python venv + FastAPI project structure | "Backend: Python (FastAPI)" |
 | 9 | PostgreSQL setup + PgAdmin | "Database: SQL (PostgreSQL)" |
 | 10 | SQLAlchemy models: User, DataSource, DataRecord | "Data Modeling" |
@@ -40,7 +40,7 @@
 ### Tuần 5-6: Kết Nối Frontend ↔ Backend
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 15 | Axios + API service layer | "Tích hợp hệ thống" |
 | 16 | Kết nối dashboard với API thật | "Bảng điều khiển (Dashboard)" |
 | 17 | Form tạo DataSource + validation | "Quản lý dữ liệu" |
@@ -52,7 +52,7 @@
 ### Tuần 7-8: Xác Thực + Phân Quyền
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 22 | JWT + endpoint `/login` | "Authentication" |
 | 23 | Endpoint `/register` + bcrypt | "Security" |
 | 24 | Login page + httpOnly cookie | "Frontend auth flow" |
@@ -64,7 +64,7 @@
 ### Tuần 9-10: API Thu Thập Dữ Liệu
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 29 | Design schema: events, metrics, timestamps | "Thu thập dữ liệu cross-product" |
 | 30 | Bulk insert endpoint `POST /api/data/bulk` | "Hợp nhất dữ liệu" |
 | 31 | Pydantic custom validators | "Data Integrity — kiểm tra đầu vào" |
@@ -76,7 +76,7 @@
 ### Tuần 11-12: Hệ Thống Webhook
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 36 | Webhook model: url, events, secret, active | "Webhook" |
 | 37 | CRUD webhook endpoints | "API Design" |
 | 38 | Dispatcher service: send payload to URLs | "Tích hợp hệ thống bên ngoài" |
@@ -88,7 +88,7 @@
 ### Tuần 13-14: Đường Ống Dữ Liệu (Batch)
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 43 | Celery + Redis: setup task queue | "Data Pipeline" |
 | 44 | Scheduled task: fetch external API every hour | "Thu thập dữ liệu tự động" |
 | 45 | Transform pipeline: clean, normalize, enrich | "Chuẩn hóa dữ liệu" |
@@ -99,8 +99,8 @@
 
 ### Tuần 15-16: Dữ Liệu Thời Gian Thực
 
-| Ngày | Học Gì | Liên Học JD |
-|------|--------|-------------|
+| Ngày | Học Gì | Liên Hệ JD |
+| --- | --- | --- |
 | 50 | WebSocket trong FastAPI | "Real-time" |
 | 51 | Kafka producer: publish data events | "Data Pipeline — streaming" |
 | 52 | Kafka consumer: consume → push to WS | "Đồng bộ dữ liệu" |
@@ -116,7 +116,7 @@
 ### Tuần 17-18: Docker
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 57 | Dockerfile Next.js (multi-stage) | "DevOps: Docker" |
 | 58 | Dockerfile FastAPI (multi-stage) | "DevOps: Docker" |
 | 59 | docker-compose: app + db + redis + kafka | "Môi trường sản xuất" |
@@ -128,7 +128,7 @@
 ### Tuần 19-20: CI/CD
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 64 | GitHub Actions: lint + test on push/PR | "CI/CD pipelines" |
 | 65 | Pre-commit hooks: black, flake8, prettier, eslint | "Code sạch, quy chuẩn" |
 | 66 | Backend unit tests (pytest) — coverage >60% | "Đảm bảo chất lượng Code" |
@@ -140,7 +140,7 @@
 ### Tuần 21-22: Giám Sát (Prometheus + Grafana)
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 71 | Prometheus client + metrics middleware | "Monitoring: Prometheus" |
 | 72 | Custom metrics: request count, error rate, duration | "Giám sát hiệu năng" |
 | 73 | Prometheus + Grafana via docker-compose | "Monitoring: Grafana" |
@@ -152,7 +152,7 @@
 ### Tuần 23-24: Nhật Ký (ELK Stack)
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 78 | Structured logging: JSON + request_id | "Logging: ELK" |
 | 79 | Elasticsearch + Logstash + Kibana | "ELK Stack" |
 | 80 | Logstash ingest app logs | "Tập trung nhật ký" |
@@ -168,7 +168,7 @@
 ### Tuần 25-26: Tối Ưu Hiệu Suất
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 85 | Redis caching layer for GET endpoints | "Tối ưu hiệu năng hệ thống" |
 | 86 | Cache invalidation: TTL + manual | "Quản lý cache" |
 | 87 | Optimize slow SQL: EXPLAIN ANALYZE + index | "Thời gian phản hồi nhanh" |
@@ -180,7 +180,7 @@
 ### Tuần 27-28: Load Testing + Mở Rộng
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 92 | k6: write load test script | "Test tải hệ thống" |
 | 93 | Run: 100 concurrent users, 30 min | "Xử lý khối lượng lớn" |
 | 94 | Fix top 3 bottlenecks | "Tối ưu hiệu năng" |
@@ -192,7 +192,7 @@
 ### Tuần 29-30: System Design
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 99 | Architecture diagram (draw.io) | "Kiến trúc hệ thống" |
 | 100 | Data flow doc: source → pipeline → DB → dashboard | "Hiểu luồng dữ liệu" |
 | 101 | 5 Architecture Decision Records (ADR) | "Ra quyết định công nghệ" |
@@ -204,7 +204,7 @@
 ### Tuần 31-32: Bảo Mật
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 106 | OWASP Top 10 audit | "An toàn thông tin" |
 | 107 | Rate limiting: slowapi/redis | "Bảo vệ API" |
 | 108 | CORS + CSP headers + HSTS | "Security headers" |
@@ -220,7 +220,7 @@
 ### Tuần 33-34: Blog Kỹ Thuật
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 113 | Blog 1: Dashboard Next.js + FastAPI | "Tài liệu hóa, chia sẻ" |
 | 114 | Publish Blog 1 + LinkedIn | "Xây dựng portfolio" |
 | 115 | Blog 2: Real-time Pipeline Kafka + WS | "Chia sẻ kiến thức" |
@@ -232,7 +232,7 @@
 ### Tuần 35-36: Tài Liệu Hóa
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 120 | API docs (Swagger/OpenAPI) | "Tài liệu API" |
 | 121 | Deployment guide | "Hướng dẫn vận hành" |
 | 122 | Troubleshooting guide | "Khắc phục sự cố" |
@@ -244,7 +244,7 @@
 ### Tuần 37-38: Mentoring + Code Review
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 127 | Tutorial: setup project 10 min | "Hướng dẫn junior" |
 | 128 | Inline comments complex code | "Code sạch, dễ đọc" |
 | 129 | Code review checklist | "Code Review" |
@@ -256,7 +256,7 @@
 ### Tuần 39-40: Gói Thăng Chức
 
 | Ngày | Học Gì | Liên Hệ JD |
-|------|--------|------------|
+| --- | --- | --- |
 | 134 | Impact metrics: features, performance, uptime | "Đo lường giá trị" |
 | 135 | Code quality: coverage %, PRs, bugs fixed | "Chất lượng đảm bảo" |
 | 136 | System design presentation | "Kiến trúc hệ thống" |
@@ -270,7 +270,7 @@
 ## 📊 Tóm Tắt: JD Requirement → Được Học Ở Đâu
 
 | Yêu Cầu JD | Phase | Tuần | Ngày |
-|------------|-------|------|------|
+| --- | --- | --- | --- |
 | **NextJS (Thành thạo)** | 1 | 1-2 | 1-7 |
 | **State Management** | 1 | 5-6 | 20 |
 | **Python (FastAPI)** | 1 | 3-4 | 8-14 |
