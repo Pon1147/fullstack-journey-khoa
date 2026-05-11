@@ -5,6 +5,7 @@
 ## Định Dạng
 
 Mỗi ADR theo cấu trúc:
+
 - **Tiêu Đề**: Tóm tắt một dòng
 - **Trạng Thái**: Đề Xuất | Đã Chấp Nhận | Đã Loại | Đã Thay Thế
 - **Bối Cảnh**: Vấn đề cần giải quyết?
@@ -13,12 +14,12 @@ Mỗi ADR theo cấu trúc:
 
 ## Mục Lục
 
-| # | Tiêu Đề | Trạng Thái | Ngày |
-|---|---------|------------|------|
-| 001 | Dùng Next.js 14 với App Router | Đã Chấp Nhận | 2026-05-11 |
-| 002 | Dùng FastAPI cho Backend API | Đã Chấp Nhận | 2026-05-11 |
-| 003 | PostgreSQL là Database Chính | Đã Chấp Nhận | 2026-05-11 |
-| 004 | Docker Compose cho Hạ Tầng Cục Bộ | Đã Chấp Nhận | 2026-05-11 |
+| #   | Tiêu Đề                                 | Trạng Thái   | Ngày       |
+| --- | --------------------------------------- | ------------ | ---------- |
+| 001 | Dùng Next.js 14 với App Router          | Đã Chấp Nhận | 2026-05-11 |
+| 002 | Dùng FastAPI cho Backend API            | Đã Chấp Nhận | 2026-05-11 |
+| 003 | PostgreSQL là Database Chính            | Đã Chấp Nhận | 2026-05-11 |
+| 004 | Docker Compose cho Hạ Tầng Cục Bộ       | Đã Chấp Nhận | 2026-05-11 |
 | 005 | Kafka cho Truyền Sự Kiện Thời Gian Thực | Đã Chấp Nhận | 2026-05-11 |
 
 ---
@@ -28,13 +29,16 @@ Mỗi ADR theo cấu trúc:
 **Trạng Thái**: Đã Chấp Nhận
 **Ngày**: 2026-05-11
 
-### Bối Cảnh
+### ADR-001.1:Bối Cảnh
+
 Cần framework frontend để xây bảng điều khiển dữ liệu có render phía máy chủ, hỗ trợ TypeScript tốt, và hệ sinh thái mạnh.
 
-### Quyết Định
+### ADR-001.2:Quyết Định
+
 Dùng Next.js 14 với App Router (không dùng Pages Router) cho bảng điều khiển frontend.
 
-### Hậu Quả
+### ADR-001.3:Hậu Quả
+
 - ✅ Hỗ trợ SSR/SSG cải thiện hiệu suất và SEO
 - ✅ Định tuyến theo file với layout mạnh mẽ
 - ✅ Route API tích hợp (nếu cần)
@@ -48,13 +52,16 @@ Dùng Next.js 14 với App Router (không dùng Pages Router) cho bảng điều
 **Trạng Thái**: Đã Chấp Nhận
 **Ngày**: 2026-05-11
 
-### Bối Cảnh
+### ADR-002.1:Bối Cảnh
+
 Cần framework backend cho REST API, đường ống xử lý dữ liệu, và tính năng thời gian thực. Python ưu tiên vì hệ sinh thái data engineering.
 
-### Quyết Định
+### ADR-002.2:Quyết Định
+
 Dùng FastAPI (Python) cho lớp API backend.
 
-### Hậu Quả
+### ADR-002.3:Hậu Quả
+
 - ✅ Hiệu suất cao (hỗ trợ async, Starlette)
 - ✅ Tự động tạo tài liệu OpenAPI/Swagger
 - ✅ Xác thực Pydantic tích hợp
@@ -69,13 +76,16 @@ Dùng FastAPI (Python) cho lớp API backend.
 **Trạng Thái**: Đã Chấp Nhận
 **Ngày**: 2026-05-11
 
-### Bối Cảnh
+### ADR-003.1:Bối Cảnh
+
 Cần database quan hệ cho lưu trữ dữ liệu có cấu trúc, truy vấn phức tạp, và toàn vẹn dữ liệu.
 
-### Quyết Định
+### ADR-003.2:Quyết Định
+
 Dùng PostgreSQL 16 làm database chính.
 
-### Hậu Quả
+### ADR-003.3:Hậu Quả
+
 - ✅ Tuân thủ ACID, toàn vẹn dữ liệu mạnh
 - ✅ Hỗ trợ JSONB cho dữ liệu bán cấu trúc
 - ✅ Engine truy vấn mạnh cho tổng hợp
@@ -90,13 +100,16 @@ Dùng PostgreSQL 16 làm database chính.
 **Trạng Thái**: Đã Chấp Nhận
 **Ngày**: 2026-05-11
 
-### Bối Cảnh
+### ADR-004.1:Bối Cảnh
+
 Cần môi trường phát triển cục bộ nhất quán với tất cả dịch vụ (DB, cache, message broker, giám sát).
 
-### Quyết Định
+### ADR-004.2:Quyết Định
+
 Dùng Docker Compose để điều phối tất cả dịch vụ hạ tầng cục bộ.
 
-### Hậu Quả
+### ADR-004.3:Hậu Quả
+
 - ✅ Môi trường tái tạo
 - ✅ Loại bỏ "chạy máy tôi mà"
 - ✅ Quản lý dịch vụ dễ dàng (khởi động/dừng/nhật ký)
@@ -111,13 +124,16 @@ Dùng Docker Compose để điều phối tất cả dịch vụ hạ tầng c�
 **Trạng Thái**: Đã Chấp Nhận
 **Ngày**: 2026-05-11
 
-### Bối Cảnh
+### ADR-005.1:Bối Cảnh
+
 Cần message broker cho sự kiện dữ liệu thời gian thực giữa đường ống và bảng điều khiển.
 
-### Quyết Định
+### ADR-005.2:Quyết Định
+
 Dùng Apache Kafka cho truyền sự kiện.
 
-### Hậu Quả
+### ADR-005.3:Hậu Quả
+
 - ✅ Thông lượng cao, chịu lỗi
 - ✅ Nhật ký tin nhắn bền vững (có thể phát lại)
 - ✅ Nhiều người tiêu dùng per topic
@@ -129,7 +145,8 @@ Dùng Apache Kafka cho truyền sự kiện.
 
 ## Tạo ADR Mới
 
-1. Sao chép mẫu:
+1. Sao chép mẫu
+
 ```markdown
 ## ADR-XXX: [Tiêu Đề]
 
@@ -137,14 +154,18 @@ Dùng Apache Kafka cho truyền sự kiện.
 **Ngày**: YYYY-MM-DD
 
 ### Bối Cảnh
+
 [Vấn đề cần giải quyết?]
 
 ### Quyết Định
+
 [Chúng ta quyết định gì?]
 
 ### Hậu Quả
+
 [Kết quả ra sao?]
 ```
-2. Thêm vào bảng Mục Lục ở trên
-3. Thảo luận với đội/giáo viên
-4. Cập nhật Trạng Thái khi được chấp nhận
+
+1. Thêm vào bảng Mục Lục ở trên
+2. Thảo luận với đội/giáo viên
+3. Cập nhật Trạng Thái khi được chấp nhận

@@ -8,9 +8,11 @@
 ## Xác Thực
 
 ### POST /api/auth/register
+
 Đăng ký người dùng mới.
 
 **Dữ Liệu Gửi:**
+
 ```json
 {
   "username": "chuỗi (3-50 ký tự)",
@@ -20,6 +22,7 @@
 ```
 
 **Phản Hồi:** `201 Created`
+
 ```json
 {
   "id": 1,
@@ -30,9 +33,11 @@
 ```
 
 ### POST /api/auth/login
+
 Đăng nhập và nhận token JWT.
 
 **Dữ Liệu Gửi:**
+
 ```json
 {
   "username": "chuỗi",
@@ -41,6 +46,7 @@
 ```
 
 **Phản Hồi:** `200 OK`
+
 ```json
 {
   "access_token": "chuỗi (JWT)",
@@ -53,11 +59,13 @@
 ## Nguồn Dữ Liệu (Data Sources)
 
 ### POST /api/data-sources
+
 Tạo nguồn dữ liệu mới.
 
 **Headers:** `Authorization: Bearer <token>`
 
 **Dữ Liệu Gửi:**
+
 ```json
 {
   "name": "chuỗi",
@@ -70,11 +78,13 @@ Tạo nguồn dữ liệu mới.
 **Phản Hồi:** `201 Created`
 
 ### GET /api/data-sources
+
 Liệt kê tất cả nguồn dữ liệu (có phân trang).
 
 **Tham Số:** `?page=1&limit=20&search=...`
 
 **Phản Hồi:** `200 OK`
+
 ```json
 {
   "data": [],
@@ -85,12 +95,15 @@ Liệt kê tất cả nguồn dữ liệu (có phân trang).
 ```
 
 ### GET /api/data-sources/{id}
+
 Lấy nguồn dữ liệu theo ID. → `200 OK`
 
 ### PUT /api/data-sources/{id}
+
 Cập nhật nguồn dữ liệu. → `200 OK`
 
 ### DELETE /api/data-sources/{id}
+
 Xóa nguồn dữ liệu. → `204 No Content`
 
 ---
@@ -98,9 +111,11 @@ Xóa nguồn dữ liệu. → `204 No Content`
 ## Bản Ghi Dữ Liệu (Data Records)
 
 ### POST /api/data-records
+
 Chèn một bản ghi dữ liệu.
 
 **Dữ Liệu Gửi:**
+
 ```json
 {
   "source_id": 1,
@@ -111,22 +126,25 @@ Chèn một bản ghi dữ liệu.
 ```
 
 ### POST /api/data-records/bulk
+
 Chèn hàng loạt bản ghi.
 
 **Dữ Liệu Gửi:**
+
 ```json
-[
-  { "source_id": 1, "event": "page_view", "metrics": {}, "timestamp": "..." }
-]
+[{ "source_id": 1, "event": "page_view", "metrics": {}, "timestamp": "..." }]
 ```
 
 ### GET /api/data-records
+
 Liệt kê bản ghi (có lọc).
 
 **Tham Số:** `?source_id=1&from=2024-01-01&to=2024-12-31&page=1&limit=50`
 
 ### GET /api/data-records/{id} → `200 OK`
+
 ### PUT /api/data-records/{id} → `200 OK`
+
 ### DELETE /api/data-records/{id} → `204 No Content`
 
 ---
@@ -134,11 +152,13 @@ Liệt kê bản ghi (có lọc).
 ## Tổng Hợp (Aggregation)
 
 ### GET /api/aggregation/summary
+
 Lấy tổng quan KPI.
 
 **Tham Số:** `?from=2024-01-01&to=2024-12-31`
 
 **Phản Hồi:**
+
 ```json
 {
   "total_users": 0,
@@ -149,9 +169,11 @@ Lấy tổng quan KPI.
 ```
 
 ### GET /api/aggregation/by-source
+
 Tổng hợp theo nguồn dữ liệu.
 
 ### GET /api/aggregation/by-date
+
 Tổng hợp theo khoảng ngày.
 
 ---
@@ -159,9 +181,11 @@ Tổng hợp theo khoảng ngày.
 ## Webhook
 
 ### POST /api/webhooks
+
 Đăng ký endpoint webhook mới.
 
 **Dữ Liệu Gửi:**
+
 ```json
 {
   "url": "https://app-cua-ban.com/webhook",
@@ -171,8 +195,11 @@ Tổng hợp theo khoảng ngày.
 ```
 
 ### GET /api/webhooks → Liệt kê tất cả
+
 ### PUT /api/webhooks/{id} → Cập nhật
+
 ### DELETE /api/webhooks/{id} → Xóa
+
 ### POST /api/webhooks/{id}/test → Gửi payload thử
 
 ---
@@ -180,7 +207,9 @@ Tổng hợp theo khoảng ngày.
 ## Đường Ống (Pipelines)
 
 ### GET /api/pipelines → Liệt kê tất cả chạy
+
 ### GET /api/pipelines/{id} → Chi tiết lần chạy
+
 ### POST /api/pipelines/{id}/trigger → Kích hoạt thủ công
 
 ---
@@ -188,9 +217,11 @@ Tổng hợp theo khoảng ngày.
 ## Giám Sát
 
 ### GET /health
+
 Kiểm tra sức khỏe hệ thống.
 
 **Phản Hồi:**
+
 ```json
 {
   "status": "healthy",
@@ -201,27 +232,30 @@ Kiểm tra sức khỏe hệ thống.
 ```
 
 ### GET /metrics
+
 Endpoint chỉ số Prometheus.
 
 ---
 
 ## Phản Hồi Lỗi
 
-| Mã   | Nghĩa                       |
-|------|-----------------------------|
-| 400  | Yêu Cầu Không Đúng          |
-| 401  | Chưa Xác Thực               |
-| 403  | Không Có Quyền              |
-| 404  | Không Tìm Thấy              |
-| 409  | Xung Đột                    |
-| 422  | Lỗi Xác Thực                |
-| 429  | Vượt Giới Hạn Tốc Độ        |
-| 500  | Lỗi Máy Chủ Nội Bộ          |
+| Mã  | Nghĩa                |
+| --- | -------------------- |
+| 400 | Yêu Cầu Không Đúng   |
+| 401 | Chưa Xác Thực        |
+| 403 | Không Có Quyền       |
+| 404 | Không Tìm Thấy       |
+| 409 | Xung Đột             |
+| 422 | Lỗi Xác Thực         |
+| 429 | Vượt Giới Hạn Tốc Độ |
+| 500 | Lỗi Máy Chủ Nội Bộ   |
 
 **Định Dạng Lỗi:**
+
 ```json
 {
   "detail": "Mô tả lỗi",
   "error_code": "VALIDATION_ERROR",
   "timestamp": "2024-01-01T00:00:00Z"
 }
+```
