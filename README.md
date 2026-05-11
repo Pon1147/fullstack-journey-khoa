@@ -1,37 +1,37 @@
 # 🚀 Fullstack Data Platform Engineer
 
-> **140-Day Journey**: Junior → Mid → Senior Fullstack Engineer
+> **Lộ trình 140 ngày**: Junior → Mid → Senior Fullstack Engineer
 > **Stack**: Next.js + TypeScript | FastAPI (Python) | PostgreSQL | Docker | Prometheus
-> **Period**: 2026-05-11 → 2027-05-11
+> **Thời gian**: 2026-05-11 → 2027-05-11
 
 [![CI](https://github.com/Pon1147/fullstack-journey-khoa/actions/workflows/ci.yml/badge.svg)](.github/workflows/ci.yml)
 [![CD](https://github.com/Pon1147/fullstack-journey-khoa/actions/workflows/cd.yml/badge.svg)](.github/workflows/cd.yml)
 
 ---
 
-## 📋 Overview
+## 📋 Tổng Quan
 
-A fullstack data platform featuring a real-time analytics dashboard, REST API, data pipelines, webhook system, and complete monitoring/observability stack.
+Nền tảng dữ liệu fullstack bao gồm: bảng điều khiển phân tích thời gian thực, REST API, đường ống xử lý dữ liệu, hệ thống webhook, và bộ giám sát/observability hoàn chỉnh.
 
-### Features
+### Tính Năng
 
-- 📊 **Dashboard**: Real-time KPI visualization with Next.js 14 + Recharts
-- 🔌 **REST API**: CRUD operations, authentication, bulk data ingestion (FastAPI)
-- 🔄 **Data Pipeline**: Batch processing with Celery, real-time streaming with Kafka
-- 🪝 **Webhooks**: Event-driven integrations with HMAC signing & retry logic
-- 🔐 **Auth**: JWT-based authentication with role-based access control (RBAC)
-- 📈 **Monitoring**: Prometheus metrics + Grafana dashboards
-- 📝 **Logging**: ELK Stack (Elasticsearch, Logstash, Kibana)
-- 🐳 **Docker**: Full stack containerized with docker-compose
-- ⚡ **CI/CD**: GitHub Actions for automated testing & deployment
+- 📊 **Bảng Điều Khiển**: Trực quan hóa KPI thời gian thực với Next.js 14 + Recharts
+- 🔌 **REST API**: CRUD, xác thực, nhập dữ liệu hàng loạt (FastAPI)
+- 🔄 **Đường Ống Dữ Liệu**: Xử lý batch với Celery, streaming thời gian thực với Kafka
+- 🪝 **Webhook**: Tích hợp theo sự kiện, ký HMAC, cơ chế thử lại
+- 🔐 **Xác Thực**: JWT + kiểm soát truy cập theo vai trò (RBAC)
+- 📈 **Giám Sát**: Prometheus metrics + Grafana dashboards
+- 📝 **Nhật Ký**: ELK Stack (Elasticsearch, Logstash, Kibana)
+- 🐳 **Docker**: Toàn bộ stack chạy trong container
+- ⚡ **CI/CD**: GitHub Actions tự động kiểm thử & triển khai
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Kiến Trúc
 
-```
+```bash
 ┌──────────────┐    HTTP/WS    ┌──────────────┐    SQL    ┌──────────────┐
-│   Browser    │ ◄───────────► │   FastAPI    │ ─────────► │  PostgreSQL  │
+│   Trình Duyệt │ ◄───────────► │   FastAPI    │ ─────────► │  PostgreSQL  │
 │  Next.js 14  │               │   Backend    │            │    16        │
 └──────────────┘               └──────┬───────┘            └──────────────┘
                                       │
@@ -43,54 +43,54 @@ A fullstack data platform featuring a real-time analytics dashboard, REST API, d
                     └──────────┘ └────────┘ └─────────┘
 ```
 
-📖 [Full Architecture Diagram](docs/architecture.md)
+📖 [Sơ Đồ Kiến Trúc Chi Tiết](docs/architecture.md)
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Bắt Đầu Nhanh
 
-### Prerequisites
+### Yêu Cầu
 
-- **Docker Desktop** 24+ (with docker-compose)
-- **Node.js** 20+ (for local frontend dev)
-- **Python** 3.11+ (for local backend dev)
+- **Docker Desktop** 24+ (có docker-compose)
+- **Node.js** 20+ (phát triển frontend cục bộ)
+- **Python** 3.11+ (phát triển backend cục bộ)
 - **Git**
 
-### Option 1: Docker (Recommended)
+### Cách 1: Docker (Khuyến Nghị)
 
 ```bash
-# 1. Clone repository
+# 1. Clone kho mã nguồn
 git clone git@github.com:Pon1147/fullstack-journey-khoa.git
 cd fullstack-journey-khoa
 
-# 2. Configure environment
+# 2. Cấu hình môi trường
 cp .env.example .env
-# Edit .env with your settings
+# Sửa .env theo cài đặt của bạn
 
-# 3. Start infrastructure
+# 3. Khởi động hạ tầng
 docker-compose up -d postgres redis kafka zookeeper
 
-# 4. Wait for services to be healthy
+# 4. Chờ dịch vụ sẵn sàng
 docker-compose ps
 
-# 5. Start backend
+# 5. Khởi động backend
 cd projects/backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 
-# 6. Start frontend (new terminal)
+# 6. Khởi động frontend (terminal mới)
 cd projects/frontend
 npm install
 npm run dev
 ```
 
-### Option 2: Local Development
+### Cách 2: Phát Triển Cục Bộ
 
 ```bash
 # Backend
 cd projects/backend
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 
@@ -100,132 +100,132 @@ npm install
 npm run dev
 ```
 
-### Access Points
+### Điểm Truy Cập
 
-| Service      | URL                                      |
-|--------------|------------------------------------------|
-| Frontend     | http://localhost:3001                    |
-| Backend API  | http://localhost:8000                    |
-| Swagger Docs | http://localhost:8000/docs               |
-| Grafana      | http://localhost:3000 (admin/admin)      |
-| Prometheus   | http://localhost:9090                    |
-| Kibana       | http://localhost:5601                    |
+| Dịch Vụ      | URL                                   |
+| ------------ | ------------------------------------- |
+| Frontend     | <http://localhost:3001>               |
+| Backend API  | <http://localhost:8000>               |
+| Swagger Docs | <http://localhost:8000/docs>          |
+| Grafana      | <http://localhost:3000> (admin/admin) |
+| Prometheus   | <http://localhost:9090>               |
+| Kibana       | <http://localhost:5601>               |
 
 ---
 
-## 📁 Project Structure
+## 📁 Cấu Trúc Dự Án
 
-```
+```bash
 fullstack-journey-khoa/
 ├── projects/
 │   ├── frontend/           # Next.js 14 + TypeScript + Tailwind
 │   └── backend/            # FastAPI + Python + SQLAlchemy
-├── docker-compose.yml      # Full stack infrastructure
-├── docs/                   # Technical documentation
-│   ├── architecture.md
-│   ├── api.md
-│   ├── troubleshooting.md
-│   └── adr/                # Architecture Decision Records
+├── docker-compose.yml      # Hạ tầng đầy đủ trong Docker
+├── docs/                   # Tài liệu kỹ thuật
+│   ├── architecture.md     # Kiến trúc hệ thống
+│   ├── api.md              # Tài liệu API
+│   ├── troubleshooting.md  # Xử lý lỗi thường gặp
+│   └── adr/                # Ghi nhận quyết định kiến trúc
 ├── scripts/
-│   └── load-test.js        # k6 load testing script
+│   └── load-test.js        # Script test tải (k6)
 ├── .github/workflows/
-│   ├── ci.yml              # CI: lint + test
-│   └── cd.yml              # CD: deploy
-├── .env.example            # Environment variables template
-└── ROADMAP.md              # 140-day learning roadmap
+│   ├── ci.yml              # CI: kiểm tra lint + test
+│   └── cd.yml              # CD: triển khai tự động
+├── .env.example            # Mẫu biến môi trường
+└── ROADMAP.md              # Lộ trình học tập 140 ngày
 ```
 
 ---
 
-## 📊 Roadmap
+## 📊 Lộ Trình
 
-See [ROADMAP.md](ROADMAP.md) for the complete 140-day plan.
+Xem [ROADMAP.md](ROADMAP.md) để biết kế hoạch chi tiết 140 ngày.
 
-| Phase | Duration | Focus |
-|-------|----------|-------|
-| **1: Foundation** | Month 1-2 | Next.js UI, FastAPI CRUD, Auth, Data API, Webhooks, Pipelines |
-| **2: Production** | Month 3-4 | Docker, CI/CD, Prometheus+Grafana, ELK Stack |
-| **3: Optimization** | Month 5 | Caching, Load Testing, System Design, Security |
-| **4: Leadership** | Month 6 | Technical Blogs, Documentation, Mentorship Prep |
+| Giai Đoạn           | Thời Gian | Trọng Tâm                                                       |
+| ------------------- | --------- | --------------------------------------------------------------- |
+| **1: Nền Tảng**     | Tháng 1-2 | Next.js UI, FastAPI CRUD, Xác thực, Data API, Webhook, Pipeline |
+| **2: Sẵn Sản Phẩm** | Tháng 3-4 | Docker, CI/CD, Prometheus+Grafana, ELK Stack                    |
+| **3: Tối Ưu**       | Tháng 5   | Cache, Test Tải, Thiết Kế Hệ Thống, Bảo Mật                     |
+| **4: Lãnh Đạo**     | Tháng 6   | Blog Kỹ Thuật, Tài Liệu, Chuẩn Bị Mentoring                     |
 
 ---
 
-## 🧪 Testing
+## 🧪 Kiểm Thử
 
 ```bash
-# Backend tests
+# Test backend
 cd projects/backend
 pytest --cov=app --cov-report=term-missing
 
-# Frontend tests
+# Test frontend
 cd projects/frontend
 npm run test
 
-# Load testing (requires k6)
+# Test tải (cần cài k6)
 k6 run scripts/load-test.js
 ```
 
 ---
 
-## 📚 Documentation
+## 📚 Tài Liệu
 
-- [Architecture](docs/architecture.md) - System design, data flow, tech stack
-- [API Reference](docs/api.md) - All endpoints, request/response formats
-- [Troubleshooting](docs/troubleshooting.md) - Common issues and fixes
-- [ADR](docs/adr/README.md) - Architecture Decision Records
+- [Kiến Trúc](docs/architecture.md) — Thiết kế hệ thống, luồng dữ liệu, công nghệ
+- [API Reference](docs/api.md) — Tất cả endpoint, định dạng yêu cầu/phản hồi
+- [Xử Lý Lỗi](docs/troubleshooting.md) — Lỗi thường gặp và cách sửa
+- [ADR](docs/adr/README.md) — Ghi nhận quyết định kiến trúc
 
 ---
 
-## 🛠️ Development
+## 🛠️ Phát Triển
 
-### Commands
+### Lệnh Thường Dùng
 
 ```bash
-# Start all services
+# Khởi động tất cả dịch vụ
 docker-compose up -d
 
-# View logs
-docker-compose logs -f [service]
+# Xem nhật ký
+docker-compose logs -f [dich-vu]
 
-# Run database migrations (future)
+# Chạy migration database (tương lai)
 cd projects/backend && alembic upgrade head
 
-# Load test
+# Test tải
 k6 run scripts/load-test.js
 
-# Health check
+# Kiểm tra sức khỏe
 curl http://localhost:8000/health
 ```
 
-### Git Workflow
+### Quy Trình Git
 
 ```bash
-# Feature branch
-git checkout -b feature/your-feature
-git commit -m "feat: add your feature"
-git push origin feature/your-feature
-# Create PR on GitHub
+# Tạo nhánh tính năng
+git checkout -b feature/ten-tinh-nang
+git commit -m "feat: thêm tính năng mới"
+git push origin feature/ten-tinh-nang
+# Tạo PR trên GitHub
 ```
 
 ---
 
-## 📈 Performance Targets
+## 📈 Mục Tiêu Hiệu Suất
 
-| Metric | Target |
-|--------|--------|
-| API P95 Latency | < 500ms |
-| API P99 Latency | < 1000ms |
-| Error Rate | < 1% |
-| Sustained RPS | > 1000 |
-| Test Coverage | > 60% |
-
----
-
-## 📝 License
-
-Private project - Fullstack Data Platform Engineer Journey
+| Chỉ Số         | Mục Tiêu |
+| -------------- | -------- |
+| Độ Trễ P95 API | < 500ms  |
+| Độ Trễ P99 API | < 1000ms |
+| Tỷ Lỗi         | < 1%     |
+| Request/Giây   | > 1000   |
+| Phủ Trợ Test   | > 60%    |
 
 ---
 
-> "The best way to predict the future is to build it."
-> **Khoa LPD** | Started: 2026-05-11
+## 📝 Giấy Phép
+
+Dự án riêng tư — Lộ trình Fullstack Data Platform Engineer
+
+---
+
+> "Cách tốt nhất để dự đoán tương lai là xây dựng nó."
+> **Khoa LPD** | Bắt đầu: 2026-05-11

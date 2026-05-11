@@ -1,80 +1,80 @@
-# API Documentation - Data Platform
+# Tài Liệu API - Nền Tảng Dữ Liệu
 
-> Base URL: `http://localhost:8000`
-> Generated from FastAPI (auto Swagger at `/docs`)
+> URL Cơ Bản: `http://localhost:8000`
+> Tự động Swagger tại `/docs`
 
 ---
 
-## Authentication
+## Xác Thực
 
 ### POST /api/auth/register
-Register a new user.
+Đăng ký người dùng mới.
 
-**Request Body:**
+**Dữ Liệu Gửi:**
 ```json
 {
-  "username": "string (3-50 chars)",
-  "email": "string (valid email)",
-  "password": "string (min 8 chars)"
+  "username": "chuỗi (3-50 ký tự)",
+  "email": "chuỗi (email hợp lệ)",
+  "password": "chuỗi (tối thiểu 8 ký tự)"
 }
 ```
 
-**Response:** `201 Created`
+**Phản Hồi:** `201 Created`
 ```json
 {
   "id": 1,
-  "username": "string",
-  "email": "string",
+  "username": "chuỗi",
+  "email": "chuỗi",
   "role": "viewer"
 }
 ```
 
 ### POST /api/auth/login
-Login and receive JWT token.
+Đăng nhập và nhận token JWT.
 
-**Request Body:**
+**Dữ Liệu Gửi:**
 ```json
 {
-  "username": "string",
-  "password": "string"
+  "username": "chuỗi",
+  "password": "chuỗi"
 }
 ```
 
-**Response:** `200 OK`
+**Phản Hồi:** `200 OK`
 ```json
 {
-  "access_token": "string (JWT)",
+  "access_token": "chuỗi (JWT)",
   "token_type": "bearer"
 }
 ```
 
 ---
 
-## Data Sources
+## Nguồn Dữ Liệu (Data Sources)
 
 ### POST /api/data-sources
-Create a new data source.
+Tạo nguồn dữ liệu mới.
 
 **Headers:** `Authorization: Bearer <token>`
 
-**Request Body:**
+**Dữ Liệu Gửi:**
 ```json
 {
-  "name": "string",
-  "url": "string",
+  "name": "chuỗi",
+  "url": "chuỗi",
   "type": "api | webhook | file",
   "config": {}
 }
 ```
 
-**Response:** `201 Created`
+**Phản Hồi:** `201 Created`
 
 ### GET /api/data-sources
-List all data sources (paginated).
+Liệt kê tất cả nguồn dữ liệu (có phân trang).
 
-**Query Params:** `?page=1&limit=20&search=...`
+**Tham Số:** `?page=1&limit=20&search=...`
 
-**Response:** `200 OK`
+**Phản Hồi:** `200 OK`
 ```json
 {
   "data": [],
@@ -85,41 +85,35 @@ List all data sources (paginated).
 ```
 
 ### GET /api/data-sources/{id}
-Get data source by ID.
-
-**Response:** `200 OK`
+Lấy nguồn dữ liệu theo ID. → `200 OK`
 
 ### PUT /api/data-sources/{id}
-Update data source.
-
-**Response:** `200 OK`
+Cập nhật nguồn dữ liệu. → `200 OK`
 
 ### DELETE /api/data-sources/{id}
-Delete data source.
-
-**Response:** `204 No Content`
+Xóa nguồn dữ liệu. → `204 No Content`
 
 ---
 
-## Data Records
+## Bản Ghi Dữ Liệu (Data Records)
 
 ### POST /api/data-records
-Insert a single data record.
+Chèn một bản ghi dữ liệu.
 
-**Request Body:**
+**Dữ Liệu Gửi:**
 ```json
 {
   "source_id": 1,
-  "event": "string",
+  "event": "chuỗi",
   "metrics": {},
   "timestamp": "ISO 8601"
 }
 ```
 
 ### POST /api/data-records/bulk
-Bulk insert data records.
+Chèn hàng loạt bản ghi.
 
-**Request Body:**
+**Dữ Liệu Gửi:**
 ```json
 [
   { "source_id": 1, "event": "page_view", "metrics": {}, "timestamp": "..." }
@@ -127,29 +121,24 @@ Bulk insert data records.
 ```
 
 ### GET /api/data-records
-List records with filters.
+Liệt kê bản ghi (có lọc).
 
-**Query Params:** `?source_id=1&from=2024-01-01&to=2024-12-31&page=1&limit=50`
+**Tham Số:** `?source_id=1&from=2024-01-01&to=2024-12-31&page=1&limit=50`
 
-### GET /api/data-records/{id}
-Get record by ID.
-
-### PUT /api/data-records/{id}
-Update record.
-
-### DELETE /api/data-records/{id}
-Delete record.
+### GET /api/data-records/{id} → `200 OK`
+### PUT /api/data-records/{id} → `200 OK`
+### DELETE /api/data-records/{id} → `204 No Content`
 
 ---
 
-## Aggregation
+## Tổng Hợp (Aggregation)
 
 ### GET /api/aggregation/summary
-Get KPI summary.
+Lấy tổng quan KPI.
 
-**Query Params:** `?from=2024-01-01&to=2024-12-31`
+**Tham Số:** `?from=2024-01-01&to=2024-12-31`
 
-**Response:**
+**Phản Hồi:**
 ```json
 {
   "total_users": 0,
@@ -160,60 +149,48 @@ Get KPI summary.
 ```
 
 ### GET /api/aggregation/by-source
-Aggregate metrics grouped by data source.
+Tổng hợp theo nguồn dữ liệu.
 
 ### GET /api/aggregation/by-date
-Aggregate metrics grouped by date range.
+Tổng hợp theo khoảng ngày.
 
 ---
 
-## Webhooks
+## Webhook
 
 ### POST /api/webhooks
-Register a new webhook endpoint.
+Đăng ký endpoint webhook mới.
 
-**Request Body:**
+**Dữ Liệu Gửi:**
 ```json
 {
-  "url": "https://your-app.com/webhook",
+  "url": "https://app-cua-ban.com/webhook",
   "events": ["data.inserted", "data.updated"],
-  "secret": "your-secret-key"
+  "secret": "khao-bi-mat"
 }
 ```
 
-### GET /api/webhooks
-List all webhooks.
-
-### PUT /api/webhooks/{id}
-Update webhook.
-
-### DELETE /api/webhooks/{id}
-Delete webhook.
-
-### POST /api/webhooks/{id}/test
-Send test payload to webhook.
+### GET /api/webhooks → Liệt kê tất cả
+### PUT /api/webhooks/{id} → Cập nhật
+### DELETE /api/webhooks/{id} → Xóa
+### POST /api/webhooks/{id}/test → Gửi payload thử
 
 ---
 
-## Pipelines
+## Đường Ống (Pipelines)
 
-### GET /api/pipelines
-List all pipeline runs.
-
-### GET /api/pipelines/{id}
-Get pipeline run details.
-
-### POST /api/pipelines/{id}/trigger
-Manually trigger a pipeline.
+### GET /api/pipelines → Liệt kê tất cả chạy
+### GET /api/pipelines/{id} → Chi tiết lần chạy
+### POST /api/pipelines/{id}/trigger → Kích hoạt thủ công
 
 ---
 
-## Monitoring
+## Giám Sát
 
 ### GET /health
-Health check endpoint.
+Kiểm tra sức khỏe hệ thống.
 
-**Response:**
+**Phản Hồi:**
 ```json
 {
   "status": "healthy",
@@ -224,27 +201,27 @@ Health check endpoint.
 ```
 
 ### GET /metrics
-Prometheus metrics endpoint.
+Endpoint chỉ số Prometheus.
 
 ---
 
-## Error Responses
+## Phản Hồi Lỗi
 
-| Code  | Meaning             |
-|-------|---------------------|
-| 400   | Bad Request         |
-| 401   | Unauthorized        |
-| 403   | Forbidden           |
-| 404   | Not Found           |
-| 409   | Conflict            |
-| 422   | Validation Error    |
-| 429   | Rate Limit Exceeded |
-| 500   | Internal Server Error |
+| Mã   | Nghĩa                       |
+|------|-----------------------------|
+| 400  | Yêu Cầu Không Đúng          |
+| 401  | Chưa Xác Thực               |
+| 403  | Không Có Quyền              |
+| 404  | Không Tìm Thấy              |
+| 409  | Xung Đột                    |
+| 422  | Lỗi Xác Thực                |
+| 429  | Vượt Giới Hạn Tốc Độ        |
+| 500  | Lỗi Máy Chủ Nội Bộ          |
 
-**Error Format:**
+**Định Dạng Lỗi:**
 ```json
 {
-  "detail": "Error description",
+  "detail": "Mô tả lỗi",
   "error_code": "VALIDATION_ERROR",
   "timestamp": "2024-01-01T00:00:00Z"
 }

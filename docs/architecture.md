@@ -1,104 +1,104 @@
-# Architecture - Data Platform
+# Kiến Trúc - Nền Tảng Dữ Liệu
 
-## System Overview
+## Tổng Quan Hệ Thống
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         CLIENT (Browser)                         │
+│                     TRình Duyệt (Khách Hàng)                     │
 │                      Next.js 14 + TypeScript                     │
 └────────────────────────────┬────────────────────────────────────┘
                              │ HTTP / WebSocket
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                      API LAYER (FastAPI)                         │
+│                      LỚP API (FastAPI)                           │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
 │  │   REST API   │  │   Webhook    │  │   WebSocket API      │  │
-│  │   Endpoints  │  │   Dispatcher │  │   (Real-time)        │  │
+│  │  Endpoint    │  │   Phân Phát  │  │   (Thời Gian Thực)   │  │
 │  └──────────────┘  └──────────────┘  └──────────────────────┘  │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
-│  │   Auth (JWT) │  │   Pipeline   │  │   Aggregation        │  │
-│  │   Middleware │  │   (Celery)   │  │   Engine             │  │
+│  │ Xác Thực JWT │  │  Đường Ống   │  │    Tổng Hợp          │  │
+│  │  Middleware  │  │  (Celery)    │  │    (Aggregation)     │  │
 │  └──────────────┘  └──────────────┘  └──────────────────────┘  │
 └──────────┬─────────────────────┬────────────────────────────────┘
            │                     │
            ▼                     ▼
 ┌─────────────────────┐  ┌─────────────────────┐
 │   PostgreSQL 16     │  │   Redis 7            │
-│   (Primary Storage) │  │   (Cache + Broker)   │
+│  (Lưu Trữ Chính)    │  │  (Đệm + Trung Chuyển)│
 └─────────────────────┘  └─────────────────────┘
            │
            ▼
 ┌─────────────────────┐  ┌─────────────────────┐
-│   Kafka + Zookeeper │──│   Celery Workers     │
-│   (Event Streaming) │  │   (Batch Processing) │
+│   Kafka + Zookeeper │──│  Worker Celery       │
+│  (Truyền Sự Kiện)   │  │  (Xử Lý Batch)       │
 └─────────────────────┘  └─────────────────────┘
            │
            ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                      MONITORING & LOGGING                        │
+│                     GIÁM SÁT VÀ NHẬT KÝ                           │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
 │  │ Prometheus   │  │   Grafana    │  │   ELK Stack          │  │
-│  │ (Metrics)    │  │ (Dashboards) │  │ (Logs)               │  │
+│  │  (Chỉ Số)    │  │  (Bảng Điều) │  │   (Nhật Ký)          │  │
 │  └──────────────┘  └──────────────┘  └──────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## Technology Stack
+## Bưu Công Nghệ
 
-| Layer        | Technology              | Purpose                    |
-|--------------|-------------------------|----------------------------|
-| Frontend     | Next.js 14 + TypeScript | Dashboard UI, SSR          |
-| Backend      | FastAPI (Python)        | REST API, Business Logic   |
-| Database     | PostgreSQL 16           | Primary data storage       |
-| Cache        | Redis 7                 | Session, Cache, Celery     |
-| Streaming    | Kafka                   | Real-time event pipeline   |
-| Tasks        | Celery + Redis          | Batch data processing      |
-| Monitoring   | Prometheus + Grafana    | Metrics & dashboards       |
-| Logging      | ELK Stack               | Centralized logging        |
-| Infra        | Docker + docker-compose | Containerization           |
-| CI/CD        | GitHub Actions          | Automated pipeline         |
+| Lớp          | Công Nghệ               | Mục Đích                     |
+|--------------|-------------------------|------------------------------|
+| Frontend     | Next.js 14 + TypeScript | Bảng điều khiển, SSR          |
+| Backend      | FastAPI (Python)        | REST API, Logic Nghiệp Vụ     |
+| Database     | PostgreSQL 16           | Lưu trữ dữ liệu chính         |
+| Đệm          | Redis 7                 | Phiên, Đệm, Celery            |
+| Streaming    | Kafka                   | Đường ống sự kiện thời gian thực |
+| Tác Vụ       | Celery + Redis          | Xử lý dữ liệu batch           |
+| Giám Sát     | Prometheus + Grafana    | Chỉ số & bảng điều khiển      |
+| Nhật Ký      | ELK Stack               | Nhật ký tập trung             |
+| Hạ Tầng      | Docker + docker-compose | Đóng hộp container            |
+| CI/CD        | GitHub Actions          | Pipeline tự động              |
 
-## Data Flow
+## Luồng Dữ Liệu
 
 ```
-Data Source → Webhook/API → Validation → Kafka → Pipeline → PostgreSQL → Dashboard
-                              ↓
-                          Redis Cache
-                              ↓
-                      Real-time WebSocket
+Nguồn Dữ Liệu → Webhook/API → Xác Thực → Kafka → Đường Ống → PostgreSQL → Bảng Điều Khiển
+                                    ↓
+                                Đệm Redis
+                                    ↓
+                            WebSocket Thời Gian Thực
 ```
 
-## Project Structure
+## Cấu Trúc Dự Án
 
 ```
 fullstack-journey-khoa/
 ├── projects/
 │   ├── frontend/           # Next.js 14 + TypeScript
 │   └── backend/            # FastAPI + Python
-├── docker-compose.yml      # Local infrastructure
-├── docs/                   # Technical documentation
+├── docker-compose.yml      # Hạ tầng cục bộ
+├── docs/                   # Tài liệu kỹ thuật
 │   ├── architecture.md
 │   ├── api.md
 │   ├── troubleshooting.md
-│   └── adr/                # Architecture Decision Records
-├── scripts/                # Automation scripts
-│   └── load-test.js        # k6 load testing
-├── .github/workflows/      # CI/CD pipelines
+│   └── adr/                # Ghi nhận quyết định kiến trúc
+├── scripts/                # Script tự động
+│   └── load-test.js        # Test tải k6
+├── .github/workflows/      # Pipeline CI/CD
 │   ├── ci.yml
 │   └── cd.yml
-└── .env.example            # Environment template
+└── .env.example            # Mẫu môi trường
 ```
 
-## Ports Map
+## Bản Đồ Cổng
 
-| Service      | Port  |
-|--------------|-------|
-| Frontend     | 3001  |
-| Backend      | 8000  |
-| PostgreSQL   | 5432  |
-| Redis        | 6379  |
-| Kafka        | 9092  |
-| Prometheus   | 9090  |
-| Grafana      | 3000  |
-| Elasticsearch| 9200  |
-| Kibana       | 5601  |
+| Dịch Vụ       | Cổng  |
+|---------------|-------|
+| Frontend      | 3001  |
+| Backend       | 8000  |
+| PostgreSQL    | 5432  |
+| Redis         | 6379  |
+| Kafka         | 9092  |
+| Prometheus    | 9090  |
+| Grafana       | 3000  |
+| Elasticsearch | 9200  |
+| Kibana        | 5601  |

@@ -1,150 +1,150 @@
-# Architecture Decision Records (ADR)
+# Ghi Nhận Quyết Định Kiến Trúc (ADR)
 
-> ADRs document architectural decisions for this project. Each ADR explains a significant design choice and its rationale.
+> ADR ghi nhận các quyết định kiến trúc của dự án. Mỗi ADR giải thích một lựa chọn thiết kế quan trọng và lý do đằng sau nó.
 
-## Format
+## Định Dạng
 
-Each ADR follows this structure:
-- **Title**: One-line summary
-- **Status**: Proposed | Accepted | Deprecated | Superseded
-- **Context**: What problem are we solving?
-- **Decision**: What did we decide?
-- **Consequences**: What are the results?
+Mỗi ADR theo cấu trúc:
+- **Tiêu Đề**: Tóm tắt một dòng
+- **Trạng Thái**: Đề Xuất | Đã Chấp Nhận | Đã Loại | Đã Thay Thế
+- **Bối Cảnh**: Vấn đề cần giải quyết?
+- **Quyết Định**: Chúng ta quyết định gì?
+- **Hậu Quả**: Kết quả ra sao?
 
-## Index
+## Mục Lục
 
-| # | Title | Status | Date |
-|---|-------|--------|------|
-| 001 | Use Next.js 14 with App Router | Accepted | 2026-05-11 |
-| 002 | Use FastAPI for Backend API | Accepted | 2026-05-11 |
-| 003 | PostgreSQL as Primary Database | Accepted | 2026-05-11 |
-| 004 | Docker Compose for Local Infrastructure | Accepted | 2026-05-11 |
-| 005 | Kafka for Real-time Event Streaming | Accepted | 2026-05-11 |
-
----
-
-## ADR-001: Use Next.js 14 with App Router
-
-**Status**: Accepted
-**Date**: 2026-05-11
-
-### Context
-Need a frontend framework for building a data dashboard with server-side rendering, good TypeScript support, and strong ecosystem.
-
-### Decision
-Use Next.js 14 with App Router (not Pages Router) for the frontend dashboard.
-
-### Consequences
-- ✅ SSR/SSG support for better performance and SEO
-- ✅ File-based routing with powerful layouts
-- ✅ Built-in API routes (if needed)
-- ✅ Strong TypeScript integration
-- ⚠️ Learning curve for team members familiar with Pages Router
+| # | Tiêu Đề | Trạng Thái | Ngày |
+|---|---------|------------|------|
+| 001 | Dùng Next.js 14 với App Router | Đã Chấp Nhận | 2026-05-11 |
+| 002 | Dùng FastAPI cho Backend API | Đã Chấp Nhận | 2026-05-11 |
+| 003 | PostgreSQL là Database Chính | Đã Chấp Nhận | 2026-05-11 |
+| 004 | Docker Compose cho Hạ Tầng Cục Bộ | Đã Chấp Nhận | 2026-05-11 |
+| 005 | Kafka cho Truyền Sự Kiện Thời Gian Thực | Đã Chấp Nhận | 2026-05-11 |
 
 ---
 
-## ADR-002: Use FastAPI for Backend API
+## ADR-001: Dùng Next.js 14 với App Router
 
-**Status**: Accepted
-**Date**: 2026-05-11
+**Trạng Thái**: Đã Chấp Nhận
+**Ngày**: 2026-05-11
 
-### Context
-Need a backend framework for REST API, data processing pipelines, and real-time features. Python preferred for data engineering ecosystem.
+### Bối Cảnh
+Cần framework frontend để xây bảng điều khiển dữ liệu có render phía máy chủ, hỗ trợ TypeScript tốt, và hệ sinh thái mạnh.
 
-### Decision
-Use FastAPI (Python) for the backend API layer.
+### Quyết Định
+Dùng Next.js 14 với App Router (không dùng Pages Router) cho bảng điều khiển frontend.
 
-### Consequences
-- ✅ High performance (async support, Starlette)
-- ✅ Auto-generated OpenAPI/Swagger docs
-- ✅ Pydantic validation built-in
-- ✅ Native WebSocket support
-- ✅ Rich Python data ecosystem (pandas, numpy)
-- ⚠️ Python GIL limits CPU-bound tasks (mitigated by Celery workers)
-
----
-
-## ADR-003: PostgreSQL as Primary Database
-
-**Status**: Accepted
-**Date**: 2026-05-11
-
-### Context
-Need a relational database for structured data storage, complex queries, and data integrity.
-
-### Decision
-Use PostgreSQL 16 as the primary database.
-
-### Consequences
-- ✅ ACID compliance, strong data integrity
-- ✅ JSONB support for semi-structured data
-- ✅ Powerful query engine for aggregations
-- ✅ Mature ecosystem (SQLAlchemy, Alembic)
-- ✅ Full-text search built-in
-- ⚠️ Vertical scaling limits (mitigated by read replicas later)
+### Hậu Quả
+- ✅ Hỗ trợ SSR/SSG cải thiện hiệu suất và SEO
+- ✅ Định tuyến theo file với layout mạnh mẽ
+- ✅ Route API tích hợp (nếu cần)
+- ✅ Tích hợp TypeScript sâu
+- ⚠️ Đồi học tập với thành viên quen Pages Router
 
 ---
 
-## ADR-004: Docker Compose for Local Infrastructure
+## ADR-002: Dùng FastAPI cho Backend API
 
-**Status**: Accepted
-**Date**: 2026-05-11
+**Trạng Thái**: Đã Chấp Nhận
+**Ngày**: 2026-05-11
 
-### Context
-Need consistent local development environment with all services (DB, cache, message broker, monitoring).
+### Bối Cảnh
+Cần framework backend cho REST API, đường ống xử lý dữ liệu, và tính năng thời gian thực. Python ưu tiên vì hệ sinh thái data engineering.
 
-### Decision
-Use Docker Compose to orchestrate all infrastructure services locally.
+### Quyết Định
+Dùng FastAPI (Python) cho lớp API backend.
 
-### Consequences
-- ✅ Reproducible environments
-- ✅ "Works on my machine" eliminated
-- ✅ Easy service management (start/stop/logs)
-- ✅ Close to production deployment
-- ⚠️ Resource intensive (multiple containers)
-- ⚠️ Requires Docker Desktop installation
-
----
-
-## ADR-005: Kafka for Real-time Event Streaming
-
-**Status**: Accepted
-**Date**: 2026-05-11
-
-### Context
-Need a message broker for real-time data events between pipeline and dashboard.
-
-### Decision
-Use Apache Kafka for event streaming.
-
-### Consequences
-- ✅ High throughput, fault-tolerant
-- ✅ Persistent message log (replay capability)
-- ✅ Multiple consumers per topic
-- ✅ Mature ecosystem
-- ⚠️ Complex to operate (Zookeeper dependency)
-- ⚠️ Overkill for simple use cases (but needed for scale)
+### Hậu Quả
+- ✅ Hiệu suất cao (hỗ trợ async, Starlette)
+- ✅ Tự động tạo tài liệu OpenAPI/Swagger
+- ✅ Xác thực Pydantic tích hợp
+- ✅ Hỗ trợ WebSocket nguyên sinh
+- ✅ Hệ sinh thái dữ liệu Python phong phú (pandas, numpy)
+- ⚠️ Python GIL giới hạn tác vụ CPU (giảm nhẹ bằng Celery worker)
 
 ---
 
-## Creating a New ADR
+## ADR-003: PostgreSQL là Database Chính
 
-1. Copy this template:
+**Trạng Thái**: Đã Chấp Nhận
+**Ngày**: 2026-05-11
+
+### Bối Cảnh
+Cần database quan hệ cho lưu trữ dữ liệu có cấu trúc, truy vấn phức tạp, và toàn vẹn dữ liệu.
+
+### Quyết Định
+Dùng PostgreSQL 16 làm database chính.
+
+### Hậu Quả
+- ✅ Tuân thủ ACID, toàn vẹn dữ liệu mạnh
+- ✅ Hỗ trợ JSONB cho dữ liệu bán cấu trúc
+- ✅ Engine truy vấn mạnh cho tổng hợp
+- ✅ Hệ sinh thái trưởng thành (SQLAlchemy, Alembic)
+- ✅ Tìm kiếm văn bản đầy đủ tích hợp
+- ⚠️ Giới hạn mở rộng dọc (giảm nhẹ bằng bản sao đọc sau)
+
+---
+
+## ADR-004: Docker Compose cho Hạ Tầng Cục Bộ
+
+**Trạng Thái**: Đã Chấp Nhận
+**Ngày**: 2026-05-11
+
+### Bối Cảnh
+Cần môi trường phát triển cục bộ nhất quán với tất cả dịch vụ (DB, cache, message broker, giám sát).
+
+### Quyết Định
+Dùng Docker Compose để điều phối tất cả dịch vụ hạ tầng cục bộ.
+
+### Hậu Quả
+- ✅ Môi trường tái tạo
+- ✅ Loại bỏ "chạy máy tôi mà"
+- ✅ Quản lý dịch vụ dễ dàng (khởi động/dừng/nhật ký)
+- ✅ Gần với triển khai sản phẩm
+- ⚠️ Tốn tài nguyên (nhiều container)
+- ⚠️ Cần cài Docker Desktop
+
+---
+
+## ADR-005: Kafka cho Truyền Sự Kiện Thời Gian Thực
+
+**Trạng Thái**: Đã Chấp Nhận
+**Ngày**: 2026-05-11
+
+### Bối Cảnh
+Cần message broker cho sự kiện dữ liệu thời gian thực giữa đường ống và bảng điều khiển.
+
+### Quyết Định
+Dùng Apache Kafka cho truyền sự kiện.
+
+### Hậu Quả
+- ✅ Thông lượng cao, chịu lỗi
+- ✅ Nhật ký tin nhắn bền vững (có thể phát lại)
+- ✅ Nhiều người tiêu dùng per topic
+- ✅ Hệ sinh thái trưởng thành
+- ⚠️ Vận hành phức tạp (phụ thuộc Zookeeper)
+- ⚠️ Dư thừa cho trường hợp đơn giản (nhưng cần cho quy mô)
+
+---
+
+## Tạo ADR Mới
+
+1. Sao chép mẫu:
 ```markdown
-## ADR-XXX: [Title]
+## ADR-XXX: [Tiêu Đề]
 
-**Status**: Proposed
-**Date**: YYYY-MM-DD
+**Trạng Thái**: Đề Xuất
+**Ngày**: YYYY-MM-DD
 
-### Context
-[What problem are we solving?]
+### Bối Cảnh
+[Vấn đề cần giải quyết?]
 
-### Decision
-[What did we decide?]
+### Quyết Định
+[Chúng ta quyết định gì?]
 
-### Consequences
-[What are the results?]
+### Hậu Quả
+[Kết quả ra sao?]
 ```
-2. Add to the Index table above
-3. Discuss with team/mentor
-4. Update Status when accepted
+2. Thêm vào bảng Mục Lục ở trên
+3. Thảo luận với đội/giáo viên
+4. Cập nhật Trạng Thái khi được chấp nhận

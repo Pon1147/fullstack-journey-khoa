@@ -1,256 +1,256 @@
-# 🚀 FULLSTACK DATA PLATFORM ENGINEER - 1 YEAR ROADMAP
+# 🚀 FULLSTACK DATA PLATFORM ENGINEER - LỘ TRÌNH 1 NĂM
 
-> **Contractor**: Khoa LPD
-> **Role Target**: Junior → Mid → Senior Fullstack Engineer
-> **Daily Commitment**: 4 hours/day, 6 days/week
+> **Hợp Tác Viên**: Khoa LPD
+> **Mục Tiêu Vai Trò**: Junior → Mid → Senior Fullstack Engineer
+> **Cam Kết**: 4 giờ/ngày, 6 ngày/tuần
 > **Stack**: Next.js + TypeScript | FastAPI (Python) | PostgreSQL | Docker | Prometheus
-> **Start Date**: `2026-05-11` | **End Date**: `2027-05-11`
+> **Bắt Đầu**: `2026-05-11` | **Kết Thúc**: `2027-05-11`
 
 ---
 
-## 📊 PHASE 1: FOUNDATION (MONTH 1-2)
+## 📊 GIAI ĐOẠN 1: NỀN TẢNG (THÁNG 1-2)
 
-### WEEK 1-2: Next.js + TypeScript + Dashboard UI
+### TUẦN 1-2: Next.js + TypeScript + Giao Diện Bảng Điều Khiển
 
-- [ ] Day 1: Install Node.js, VS Code, create Next.js 14 app (App Router + TypeScript). Output: `data-platform/` repo initialized
-- [ ] Day 2: Build layout shell: navbar, sidebar, main content area. Output: Working UI shell
-- [ ] Day 3: Install Tailwind CSS + shadcn/ui. Build 3 components: Table, Card, Button. Output: 3 reusable components
-- [ ] Day 4: Build mock dashboard page with 4 KPI cards (CAC, ROAS, Users, Revenue). Output: KPI dashboard page
-- [ ] Day 5: Install Recharts. Build Line chart, Bar chart, Pie chart with mock data. Output: 3 chart types rendered
-- [ ] Day 6: Add pagination, filter, search to data table. Output: Filterable data table
-- [ ] Day 7: **WEEKLY REVIEW**: Push code, write README.md, practice commit messages. Output: GitHub repo with README
+- [ ] Ngày 1: Cài Node.js, VS Code, tạo ứng dụng Next.js 14 (App Router + TypeScript). Kết quả: repo `data-platform/` khởi tạo xong
+- [ ] Ngày 2: Xây vỏ giao diện: thanh điều hướng, thanh bên, khu vực nội dung chính. Kết quả: vỏ UI hoạt động
+- [ ] Ngày 3: Cài Tailwind CSS + shadcn/ui. Xây 3 thành phần: Bảng, Thẻ, Nút. Kết quả: 3 thành phần tái sử dụng
+- [ ] Ngày 4: Xây trang bảng điều khiển giả lập với 4 thẻ KPI (CAC, ROAS, Users, Revenue). Kết quả: trang KPI
+- [ ] Ngày 5: Cài Recharts. Xây biểu đồ Đường, biểu đồ Cột, biểu đồ Bánh với dữ liệu giả. Kết quả: 3 loại biểu đồ
+- [ ] Ngày 6: Thêm phân trang, lọc, tìm kiếm vào bảng dữ liệu. Kết quả: bảng dữ liệu có thể lọc
+- [ ] Ngày 7: **KIỂM TRA TUẦN**: Push code, viết README.md, thực hành tin nhắn commit. Kết quả: repo GitHub có README
 
-### WEEK 3-4: FastAPI + PostgreSQL Backend
+### TUẦN 3-4: FastAPI + PostgreSQL Backend
 
-- [ ] Day 8: Install Python, venv, pip. Create FastAPI project with structure. Output: `backend/` folder initialized
-- [ ] Day 9: Install PostgreSQL locally, create DB `data_platform`, install PgAdmin/DBeaver. Output: DB running
-- [ ] Day 10: Create SQLAlchemy models: User, DataSource, DataRecord. Output: 3 models defined
-- [ ] Day 11: Write CRUD endpoints for DataSource: POST, GET all, GET by ID, PUT, DELETE. Output: 5 API endpoints
-- [ ] Day 12: Write CRUD endpoints for DataRecord: POST, GET all, GET by ID, PUT, DELETE. Output: 5 API endpoints
-- [ ] Day 13: Add Pydantic schemas, validation, global error handling middleware. Output: Validated API
-- [ ] Day 14: **WEEKLY REVIEW**: Test all endpoints with Postman/curl, write API doc in README. Output: API documented
+- [ ] Ngày 8: Cài Python, venv, pip. Tạo dự án FastAPI với cấu trúc. Kết quả: thư mục `backend/` khởi tạo
+- [ ] Ngày 9: Cài PostgreSQL cục bộ, tạo DB `data_platform`, cài PgAdmin/DBeaver. Kết quả: DB chạy
+- [ ] Ngày 10: Tạo mô hình SQLAlchemy: User, DataSource, DataRecord. Kết quả: 3 mô hình
+- [ ] Ngày 11: Viết endpoint CRUD cho DataSource: POST, GET tất cả, GET theo ID, PUT, DELETE. Kết quả: 5 API
+- [ ] Ngày 12: Viết endpoint CRUD cho DataRecord: POST, GET tất cả, GET theo ID, PUT, DELETE. Kết quả: 5 API
+- [ ] Ngày 13: Thêm schema Pydantic, xác thực, middleware xử lý lỗi toàn cục. Kết quả: API được xác thực
+- [ ] Ngày 14: **KIỂM TRA TUẦN**: Test tất cả endpoint với Postman/curl, viết tài liệu API trong README. Kết quả: API có tài liệu
 
-### WEEK 5-6: Connect Frontend ↔ Backend
+### TUẦN 5-6: Kết Nối Frontend ↔ Backend
 
-- [ ] Day 15: Install Axios in Next.js. Create API service layer (`services/api.ts`). Output: `services/api.ts`
-- [ ] Day 16: Connect dashboard to real API data (fetch from FastAPI). Output: Live data on dashboard
-- [ ] Day 17: Build Create DataSource form with validation (name, url, type). Output: Create form working
-- [ ] Day 18: Add Edit/Delete DataSource with confirmation dialogs. Output: Full CRUD UI
-- [ ] Day 19: Add loading states, error handling, toast notifications. Output: UX improvements
-- [ ] Day 20: Install React Query. Add data fetching + caching + auto-refetch. Output: Cached data layer
-- [ ] Day 21: **WEEKLY REVIEW**: End-to-end flow test, fix bugs, write integration notes. Output: Working fullstack app
+- [ ] Ngày 15: Cài Axios trong Next.js. Tạo lớp dịch vụ API (`services/api.ts`). Kết quả: file `services/api.ts`
+- [ ] Ngày 16: Kết nối bảng điều khiển với dữ liệu API thật (lấy từ FastAPI). Kết quả: dữ liệu thật trên bảng
+- [ ] Ngày 17: Xây form Tạo DataSource với xác thực (tên, url, loại). Kết quả: form tạo hoạt động
+- [ ] Ngày 18: Thêm Sửa/Xóa DataSource với hộp thoại xác nhận. Kết quả: giao diện CRUD đầy đủ
+- [ ] Ngày 19: Thêm trạng thái tải, xử lý lỗi, thông báo toast. Kết quả: cải thiện UX
+- [ ] Ngày 20: Cài React Query. Thêm lấy dữ liệu + bộ nhớ đệm + tự động tải lại. Kết quả: lớp dữ liệu đệm
+- [ ] Ngày 21: **KIỂM TRA TUẦN**: Test luồng đầu-đuôi, sửa lỗi, viết ghi chú tích hợp. Kết quả: ứng dụng fullstack chạy
 
-### WEEK 7-8: Authentication + Authorization
+### TUẦN 7-8: Xác Thực + Phân Quyền
 
-- [ ] Day 22: Add JWT to FastAPI. Create `/login` endpoint with token generation. Output: JWT auth flow
-- [ ] Day 23: Create `/register` endpoint with bcrypt password hashing. Output: User registration
-- [ ] Day 24: Build login page on Next.js. Store token in httpOnly cookie. Output: Login page working
-- [ ] Day 25: Create protected route middleware in Next.js (`middleware.ts`). Output: Protected pages
-- [ ] Day 26: Add role field (admin/viewer) to User model. Create role-based middleware. Output: RBAC backend
-- [ ] Day 27: Add role selection in UI. Hide/show features by role. Output: Role-based UI
-- [ ] Day 28: **WEEKLY REVIEW**: Test full auth flow, write security notes, fix issues. Output: Auth complete
+- [ ] Ngày 22: Thêm JWT vào FastAPI. Tạo endpoint `/login` với sinh token. Kết quả: luồng xác thực JWT
+- [ ] Ngày 23: Tạo endpoint `/register` với mã hóa mật khẩu bcrypt. Kết quả: đăng ký người dùng
+- [ ] Ngày 24: Xây trang đăng nhập trên Next.js. Lưu token trong cookie httpOnly. Kết quả: trang đăng nhập
+- [ ] Ngày 25: Tạo middleware route được bảo vệ trên Next.js (`middleware.ts`). Kết quả: trang được bảo vệ
+- [ ] Ngày 26: Thêm trường vai trò (admin/viewer) vào mô hình User. Tạo middleware theo vai trò. Kết quả: RBAC backend
+- [ ] Ngày 27: Thêm chọn vai trò trong giao diện. Ẩn/hiện tính năng theo vai trò. Kết quả: giao diện theo vai trò
+- [ ] Ngày 28: **KIỂM TRA TUẦN**: Test toàn bộ luồng xác thực, viết ghi chú bảo mật, sửa lỗi. Kết quả: xác thực xong
 
-### WEEK 9-10: Data Collection API
+### TUẦN 9-10: API Thu Thập Dữ Liệu
 
-- [ ] Day 29: Design data schema for cross-product data (events, metrics, timestamps). Output: Schema design doc
-- [ ] Day 30: Create bulk insert endpoint for data collection (`POST /api/data/bulk`). Output: Bulk POST endpoint
-- [ ] Day 31: Add data validation layer (Pydantic custom validators for data format). Output: Validation rules
-- [ ] Day 32: Create data enrichment service (merge fields, transform values, normalize). Output: Transform service
-- [ ] Day 33: Add data deduplication logic (unique key, upsert). Output: Dedup working
-- [ ] Day 34: Create aggregation queries: SUM, AVG, COUNT by date range, by source. Output: 5 aggregation queries
-- [ ] Day 35: **WEEKLY REVIEW**: Load test with 10K records, measure response time, document baseline. Output: Performance baseline
+- [ ] Ngày 29: Thiết kế schema dữ liệu đa sản phẩm (sự kiện, chỉ số, dấu thời gian). Kết quả: tài liệu schema
+- [ ] Ngày 30: Tạo endpoint nhập hàng loạt (`POST /api/data/bulk`). Kết quả: endpoint POST hàng loạt
+- [ ] Ngày 31: Thêm lớp xác thực dữ liệu (bộ xác thực tùy chỉnh Pydantic). Kết quả: quy tắc xác thực
+- [ ] Ngày 32: Tạo dịch vụ làm giàu dữ liệu (gộp trường, chuyển đổi giá trị, chuẩn hóa). Kết quả: dịch vụ chuyển đổi
+- [ ] Ngày 33: Thêm logic loại bỏ trùng lặp (khóa duy nhất, upsert). Kết quả: bỏ trùng hoạt động
+- [ ] Ngày 34: Tạo truy vấn tổng hợp: SUM, AVG, COUNT theo khoảng ngày, theo nguồn. Kết quả: 5 truy vấn tổng hợp
+- [ ] Ngày 35: **KIỂM TRA TUẦN**: Test tải với 10K bản ghi, đo thời gian phản hồi, ghi nhận đường cơ sở. Kết quả: đường cơ sở hiệu suất
 
-### WEEK 11-12: Webhook System
+### TUẦN 11-12: Hệ Thống Webhook
 
-- [ ] Day 36: Design webhook model (url, events[], secret, active, created_at). Output: Webhook model
-- [ ] Day 37: Create webhook CRUD endpoints (POST, GET, PUT, DELETE). Output: Webhook API
-- [ ] Day 38: Implement webhook dispatcher service (send payload to registered URLs). Output: Dispatcher service
-- [ ] Day 39: Add HMAC signature verification for webhook payloads. Output: Signed webhooks
-- [ ] Day 40: Add retry mechanism (3 retries, exponential backoff). Output: Retry logic
-- [ ] Day 41: Create webhook testing page (send test payload, view logs). Output: Test page
-- [ ] Day 42: **WEEKLY REVIEW**: Test with ngrok/localhost, verify external delivery, fix bugs. Output: Webhooks working
+- [ ] Ngày 36: Thiết kế mô hình webhook (url, events[], secret, active, created_at). Kết quả: mô hình webhook
+- [ ] Ngày 37: Tạo endpoint CRUD webhook (POST, GET, PUT, DELETE). Kết quả: API webhook
+- [ ] Ngày 38: Triển khai dịch vụ phân phát webhook (gửi payload đến URL đã đăng ký). Kết quả: dịch vụ phân phát
+- [ ] Ngày 39: Thêm xác minh chữ ký HMAC cho payload webhook. Kết quả: webhook đã ký
+- [ ] Ngày 40: Thêm cơ chế thử lại (3 lần, khoảng lùi theo cấp số nhân). Kết quả: logic thử lại
+- [ ] Ngày 41: Tạo trang test webhook (gửi payload thử, xem nhật ký). Kết quả: trang test
+- [ ] Ngày 42: **KIỂM TRA TUẦN**: Test với ngrok/localhost, xác nhận giao bên ngoài, sửa lỗi. Kết quả: webhook chạy
 
-### WEEK 13-14: Data Pipeline (Batch)
+### TUẦN 13-14: Đường Ống Dữ Liệu (Batch)
 
-- [ ] Day 43: Install Celery + Redis. Setup task queue worker. Output: Celery worker running
-- [ ] Day 44: Create scheduled task: fetch data from external API every hour. Output: 1 scheduled job
-- [ ] Day 45: Create data transformation pipeline (clean, normalize, enrich). Output: Transform pipeline
-- [ ] Day 46: Add pipeline status tracking (pending, running, done, failed) to DB. Output: Status tracking
-- [ ] Day 47: Add pipeline retry on failure (max 3 attempts). Output: Auto-retry
-- [ ] Day 48: Create pipeline log viewer page (list all runs, status, duration). Output: Log viewer page
-- [ ] Day 49: **WEEKLY REVIEW**: Run 5 pipelines, check data accuracy, document process. Output: Pipeline complete
+- [ ] Ngày 43: Cài Celery + Redis. Thiết lập hàng đợi tác vụ. Kết quả: worker Celery chạy
+- [ ] Ngày 44: Tạo tác vụ theo lịch: lấy dữ liệu từ API ngoài mỗi giờ. Kết quả: 1 công việc theo lịch
+- [ ] Ngày 45: Tạo đường ống chuyển đổi dữ liệu (làm sạch, chuẩn hóa, làm giàu). Kết quả: đường ống chuyển đổi
+- [ ] Ngày 46: Thêm theo dõi trạng thái đường ống (đang chờ, chạy, xong, thất bại) vào DB. Kết quả: theo dõi trạng thái
+- [ ] Ngày 47: Thêm tự động thử lại khi đường ống thất bại (tối đa 3 lần). Kết quả: tự thử lại
+- [ ] Ngày 48: Tạo trang xem nhật ký đường ống (liệt kê chạy, trạng thái, thời gian). Kết quả: trang xem nhật ký
+- [ ] Ngày 49: **KIỂM TRA TUẦN**: Chạy 5 đường ống, kiểm tra độ chính xác, ghi nhận quy trình. Kết quả: đường ống xong
 
-### WEEK 15-16: Real-time Data (WebSocket)
+### TUẦN 15-16: Dữ Liệu Thời Gian Thực (WebSocket)
 
-- [ ] Day 50: Setup WebSocket support in FastAPI. Output: WS endpoint
-- [ ] Day 51: Create Kafka producer service (publish data events). Output: Producer working
-- [ ] Day 52: Create Kafka consumer service (consume events, push to WS). Output: Consumer working
-- [ ] Day 53: Connect Kafka consumer → WebSocket broadcast to clients. Output: Real-time flow
-- [ ] Day 54: Update Next.js dashboard to receive real-time updates. Output: Live dashboard
-- [ ] Day 55: Add real-time chart updates (auto-refresh on new data). Output: Auto-updating charts
-- [ ] Day 56: **WEEKLY REVIEW**: Simulate real-time data stream, verify updates, fix latency. Output: Real-time working
-
----
-
-## 📊 PHASE 2: PRODUCTION-READY (MONTH 3-4)
-
-### WEEK 17-18: Docker
-
-- [ ] Day 57: Write Dockerfile for Next.js app (multi-stage build). Output: Frontend Dockerfile
-- [ ] Day 58: Write Dockerfile for FastAPI app (multi-stage build). Output: Backend Dockerfile
-- [ ] Day 59: Create `docker-compose.yml` (app + db + redis + kafka + zookeeper). Output: Compose file
-- [ ] Day 60: Run full stack with `docker-compose up`. Fix networking issues. Output: Local env in Docker
-- [ ] Day 61: Add volume mounts for data persistence (DB, Redis). Output: Data persists
-- [ ] Day 62: Optimize Docker image sizes (alpine base, multi-stage). Output: Smaller images
-- [ ] Day 63: **WEEKLY REVIEW**: Document docker commands, create .env.example, verify all services. Output: Docker doc done
-
-### WEEK 19-20: CI/CD
-
-- [ ] Day 64: Create GitHub Actions workflow: lint + test on push/PR. Output: CI workflow
-- [ ] Day 65: Add pre-commit hooks (black, flake8, prettier, eslint). Output: Auto-format on commit
-- [ ] Day 66: Add backend unit tests (pytest) for API endpoints. Output: Backend tests (coverage >60%)
-- [ ] Day 67: Add frontend unit tests (Vitest + RTL) for components. Output: Frontend tests
-- [ ] Day 68: Create deployment workflow (deploy to staging environment). Output: CD workflow
-- [ ] Day 69: Add health check endpoint + readiness probe for containers. Output: Health checks
-- [ ] Day 70: **WEEKLY REVIEW**: Push code, verify auto-build/test/deploy, fix pipeline issues. Output: CI/CD working
-
-### WEEK 21-22: Monitoring (Prometheus + Grafana)
-
-- [ ] Day 71: Add Prometheus client to FastAPI (metrics middleware). Output: /metrics endpoint
-- [ ] Day 72: Add custom metrics: request count, error rate, response duration. Output: 5 custom metrics
-- [ ] Day 73: Install Prometheus + Grafana via docker-compose. Output: Monitoring stack running
-- [ ] Day 74: Create Grafana dashboard: API performance (requests/sec, latency, errors). Output: API dashboard
-- [ ] Day 75: Create Grafana dashboard: Data pipeline status (jobs, duration, failures). Output: Pipeline dashboard
-- [ ] Day 76: Add alert rules (error rate >5%, latency P95 >1s, pipeline failure). Output: Alerts configured
-- [ ] Day 77: **WEEKLY REVIEW**: Trigger alerts manually, verify notifications, document monitoring. Output: Alerts working
-
-### WEEK 23-24: Logging (ELK Stack)
-
-- [ ] Day 78: Add structured logging to FastAPI (JSON format, request_id). Output: JSON logs
-- [ ] Day 79: Setup Elasticsearch + Logstash + Kibana via docker-compose. Output: ELK stack running
-- [ ] Day 80: Configure Logstash to ingest app logs from stdout/file. Output: Logs flowing to ES
-- [ ] Day 81: Create Kibana dashboard: error logs, slow queries, top endpoints. Output: Error dashboard
-- [ ] Day 82: Add log correlation (request_id tracing across services). Output: Traceable logs
-- [ ] Day 83: Create log search page in app (filter by level, time, service). Output: Log viewer page
-- [ ] Day 84: **WEEKLY REVIEW**: Search logs, verify correlation, test error tracking. Output: ELK complete
+- [ ] Ngày 50: Thiết lập WebSocket trong FastAPI. Kết quả: endpoint WS
+- [ ] Ngày 51: Tạo dịch vụ nhà sản xuất Kafka (pub sự kiện dữ liệu). Kết quả: producer chạy
+- [ ] Ngày 52: Tạo dịch vụ người tiêu dùng Kafka (consume sự kiện, đẩy vào WS). Kết quả: consumer chạy
+- [ ] Ngày 53: Kết nối consumer Kafka → phát sóng WebSocket cho client. Kết quả: luồng thời gian thực
+- [ ] Ngày 54: Cập nhật bảng điều khiển Next.js nhận cập nhật thời gian thực. Kết quả: bảng điều khiển trực tiếp
+- [ ] Ngày 55: Thêm cập nhật biểu đồ thời gian thực (tự động tải lại khi có dữ liệu mới). Kết quả: biểu đồ tự cập nhật
+- [ ] Ngày 56: **KIỂM TRA TUẦN**: Mô phỏng luồng dữ liệu trực tiếp, xác nhận cập nhật, sửa độ trễ. Kết quả: thời gian thực chạy
 
 ---
 
-## 📊 PHASE 3: OPTIMIZATION (MONTH 5)
+## 📊 GIAI ĐOẠN 2: SẴN SẢN PHẨM (THÁNG 3-4)
 
-### WEEK 25-26: Performance Optimization
+### TUẦN 17-18: Docker
 
-- [ ] Day 85: Add Redis caching layer for API responses (GET endpoints). Output: Cache middleware
-- [ ] Day 86: Implement cache invalidation strategy (TTL, manual invalidation). Output: Cache strategy
-- [ ] Day 87: Optimize slow SQL queries (EXPLAIN ANALYZE, add indexes). Output: Faster queries
-- [ ] Day 88: Add database indexes on frequently queried columns. Output: Indexes created
-- [ ] Day 89: Implement cursor-based pagination for large datasets. Output: Efficient pagination
-- [ ] Day 90: Frontend bundle analysis (webpack-bundle-analyzer) + code splitting. Output: Smaller bundle
-- [ ] Day 91: **WEEKLY REVIEW**: Run benchmarks before/after, document improvements. Output: Benchmark report
+- [ ] Ngày 57: Viết Dockerfile cho Next.js (xây nhiều giai đoạn). Kết quả: Dockerfile frontend
+- [ ] Ngày 58: Viết Dockerfile cho FastAPI (xây nhiều giai đoạn). Kết quả: Dockerfile backend
+- [ ] Ngày 59: Tạo `docker-compose.yml` (app + db + redis + kafka + zookeeper). Kết quả: file compose
+- [ ] Ngày 60: Chạy toàn bộ stack với `docker-compose up`. Sửa lỗi mạng. Kết quả: môi trường local trong Docker
+- [ ] Ngày 61: Thêm gắn volume cho lưu trữ dữ liệu (DB, Redis). Kết quả: dữ liệu lưu được
+- [ ] Ngày 62: Tối ưu kích thước hình ảnh Docker (alpine, nhiều giai đoạn). Kết quả: hình ảnh nhỏ hơn
+- [ ] Ngày 63: **KIỂM TRA TUẦN**: Ghi nhận lệnh Docker, tạo .env.example, xác nhận dịch vụ. Kết quả: tài liệu Docker xong
 
-### WEEK 27-28: Load Testing + Scaling
+### TUẦN 19-20: CI/CD
 
-- [ ] Day 92: Install k6. Write load test script for API endpoints. Output: k6 script
-- [ ] Day 93: Run load test: 100 concurrent users, 30 minutes. Analyze results. Output: Load test results
-- [ ] Day 94: Identify bottlenecks, fix top 3 performance issues. Output: Bottlenecks fixed
-- [ ] Day 95: Test data pipeline with 100K records batch. Measure throughput. Output: Pipeline scaled
-- [ ] Day 96: Test WebSocket with 500 concurrent connections. Measure latency. Output: WS scaled
-- [ ] Day 97: Document scaling strategy (horizontal, vertical, read replicas). Output: Scaling doc
-- [ ] Day 98: **WEEKLY REVIEW**: Target: P95 < 500ms, 1000 RPS. Document results. Output: Performance targets met
+- [ ] Ngày 64: Tạo workflow GitHub Actions: lint + test khi push/PR. Kết quả: workflow CI
+- [ ] Ngày 65: Thêm hook pre-commit (black, flake8, prettier, eslint). Kết quả: tự định dạng khi commit
+- [ ] Ngày 66: Thêm unit test backend (pytest) cho endpoint API. Kết quả: test backend (phủ >60%)
+- [ ] Ngày 67: Thêm unit test frontend (Vitest + RTL) cho thành phần. Kết quả: test frontend
+- [ ] Ngày 68: Tạo workflow triển khai (triển khai lên môi trường staging). Kết quả: workflow CD
+- [ ] Ngày 69: Thêm endpoint kiểm tra sức khỏe + probe sẵn sàng cho container. Kết quả: kiểm tra sức khỏe
+- [ ] Ngày 70: **KIỂM TRA TUẦN**: Push code, xác nhận tự động xây/test/triển khai, sửa lỗi pipeline. Kết quả: CI/CD chạy
 
-### WEEK 29-30: System Design
+### TUẦN 21-22: Giám Sát (Prometheus + Grafana)
 
-- [ ] Day 99: Draw current architecture diagram (draw.io/Excalidraw). Output: Architecture v1
-- [ ] Day 100: Document data flow: source → webhook/API → pipeline → DB → dashboard. Output: Data flow doc
-- [ ] Day 101: Write 5 Architecture Decision Records (ADR format). Output: 5 ADRs
-- [ ] Day 102: Research: Kafka vs RabbitMQ for data events. Write comparison doc. Output: Comparison doc
-- [ ] Day 103: Design horizontal scaling strategy (load balancer, stateless services). Output: Scaling design
-- [ ] Day 104: Design disaster recovery plan (backup, restore, RTO/RPO). Output: DR doc
-- [ ] Day 105: **WEEKLY REVIEW**: Present architecture to peer/mentor, collect feedback. Output: Architecture review done
+- [ ] Ngày 71: Thêm client Prometheus vào FastAPI (middleware metrics). Kết quả: endpoint /metrics
+- [ ] Ngày 72: Thêm chỉ số tùy chỉnh: số yêu cầu, tỷ lệ lỗi, thời gian phản hồi. Kết quả: 5 chỉ số tùy chỉnh
+- [ ] Ngày 73: Cài Prometheus + Grafana qua docker-compose. Kết quả: stack giám sát chạy
+- [ ] Ngày 74: Tạo bảng Grafana: hiệu suất API (yêu cầu/giây, độ trễ, lỗi). Kết quả: bảng API
+- [ ] Ngày 75: Tạo bảng Grafana: trạng thái đường ống (công việc, thời gian, thất bại). Kết quả: bảng đường ống
+- [ ] Ngày 76: Thêm quy tắc cảnh báo (lỗi >5%, độ trễ P95 >1s, đường ống thất bại). Kết quả: cảnh báo cấu hình
+- [ ] Ngày 77: **KIỂM TRA TUẦN**: Kích hoạt cảnh báo thủ công, xác nhận thông báo, ghi nhận giám sát. Kết quả: cảnh báo chạy
 
-### WEEK 31-32: Security Hardening
+### TUẦN 23-24: Nhật Ký (ELK Stack)
 
-- [ ] Day 106: Audit: check OWASP Top 10 vulnerabilities in app. Output: Security checklist
-- [ ] Day 107: Add rate limiting to API (slowapi/redis). Output: Rate limiter
-- [ ] Day 108: Add CORS policy, CSP headers, HSTS. Output: Security headers
-- [ ] Day 109: Implement input sanitization (bleach, custom validators). Output: Sanitization
-- [ ] Day 110: Verify SQL injection protection (parameterized queries everywhere). Output: SQLi safe
-- [ ] Day 111: Add secret management (env vars, no hardcoded secrets). Output: Secrets managed
-- [ ] Day 112: **WEEKLY REVIEW**: Run security scan (safety, trivy, eslint-security), fix findings. Output: Security audit done
-
----
-
-## 📊 PHASE 4: LEADERSHIP + PORTFOLIO (MONTH 6)
-
-### WEEK 33-34: Technical Writing (3 Blogs)
-
-- [ ] Day 113: Write Blog 1: "Building a Data Dashboard with Next.js + FastAPI". Output: Blog draft 1
-- [ ] Day 114: Edit + publish Blog 1 on Dev.to/Medium. Output: Blog 1 live (share on LinkedIn)
-- [ ] Day 115: Write Blog 2: "Real-time Data Pipeline with Kafka + WebSocket". Output: Blog draft 2
-- [ ] Day 116: Edit + publish Blog 2. Output: Blog 2 live
-- [ ] Day 117: Write Blog 3: "Monitoring Microservices with Prometheus + Grafana". Output: Blog draft 3
-- [ ] Day 118: Edit + publish Blog 3. Output: Blog 3 live
-- [ ] Day 119: **WEEKLY REVIEW**: 3 blogs published, share on LinkedIn/Twitter, collect feedback. Output: Portfolio boosted
-
-### WEEK 35-36: Documentation
-
-- [ ] Day 120: Write API documentation (Swagger/OpenAPI auto-generated). Output: API docs live
-- [ ] Day 121: Write deployment guide (prerequisites, steps, env vars). Output: Deploy guide
-- [ ] Day 122: Write troubleshooting guide (common errors, solutions). Output: Troubleshooting doc
-- [ ] Day 123: Create onboarding checklist for new developers. Output: Onboarding doc
-- [ ] Day 124: Document data model + relationships (ER diagram). Output: Data model doc
-- [ ] Day 125: Record 5-min demo video of full platform (Loom/OBS). Output: Demo video
-- [ ] Day 126: **WEEKLY REVIEW**: All docs complete, repo looks professional, README polished. Output: Docs complete
-
-### WEEK 37-38: Mentorship Prep + Code Review
-
-- [ ] Day 127: Create tutorial: "Setting up the project locally in 10 minutes". Output: Tutorial
-- [ ] Day 128: Add inline comments to complex code sections (pipeline, auth). Output: Commented code
-- [ ] Day 129: Create code review checklist (naming, tests, error handling, security). Output: Review checklist
-- [ ] Day 130: Practice reviewing 3 open-source PRs (GitHub). Output: PR reviews done
-- [ ] Day 131: Write "Common mistakes in data platforms" document. Output: Mistakes doc
-- [ ] Day 132: Create interview prep guide for this role (questions, answers, projects). Output: Interview guide
-- [ ] Day 133: **WEEKLY REVIEW**: Package ready for junior mentorship, share with community. Output: Mentorship kit
-
-### WEEK 39-40: Promotion Package + Final Polish
-
-- [ ] Day 134: List all features built + impact metrics (performance, accuracy, uptime). Output: Impact list
-- [ ] Day 135: Document code quality improvements (coverage %, PRs reviewed, bugs fixed). Output: Quality doc
-- [ ] Day 136: Prepare system design presentation (slides, diagrams, trade-offs). Output: Slide deck
-- [ ] Day 137: Write self-assessment + growth areas + goals for next year. Output: Self-assessment
-- [ ] Day 138: Collect peer feedback (survey 3 people: strengths, improvements). Output: Feedback gathered
-- [ ] Day 139: Prepare promotion defense (talk track, Q&A prep). Output: Defense ready
-- [ ] Day 140: **WEEKLY REVIEW**: Complete promotion package, celebrate, plan next year. Output: Package done
+- [ ] Ngày 78: Thêm nhật ký có cấu trúc vào FastAPI (định dạng JSON, request_id). Kết quả: nhật ký JSON
+- [ ] Ngày 79: Thiết lập Elasticsearch + Logstash + Kibana qua docker-compose. Kết quả: stack ELK chạy
+- [ ] Ngày 80: Cấu hình Logstash nhận nhật ký ứng dụng từ stdout/file. Kết quả: nhật ký chảy vào ES
+- [ ] Ngày 81: Tạo bảng Kibana: nhật ký lỗi, truy vấn chậm, endpoint hàng đầu. Kết quả: bảng lỗi
+- [ ] Ngày 82: Thêm tương quan nhật ký (theo dõi request_id qua dịch vụ). Kết quả: nhật ký có thể theo dõi
+- [ ] Ngày 83: Tạo trang tìm nhật ký trong ứng dụng (lọc theo cấp độ, thời gian, dịch vụ). Kết quả: trang xem nhật ký
+- [ ] Ngày 84: **KIỂM TRA TUẦN**: Tìm nhật ký, xác nhận tương quan, test theo dõi lỗi. Kết quả: ELK xong
 
 ---
 
-## 🏆 FINAL GOALS (Month 6)
+## 📊 GIAI ĐOẠN 3: TỐI ƯU (THÁNG 5)
 
-- [ ] Fullstack app: Next.js + FastAPI + PostgreSQL + Redis + Kafka
-- [ ] Real-time dashboard with charts, filters, data collection
-- [ ] Dockerized with docker-compose
-- [ ] CI/CD pipeline (GitHub Actions)
-- [ ] Monitoring (Prometheus + Grafana)
-- [ ] Logging (ELK Stack)
-- [ ] Load tested (1000 RPS, P95 < 500ms)
-- [ ] 3 technical blogs published
-- [ ] Complete documentation
-- [ ] Promotion package ready
+### TUẦN 25-26: Tối Ưu Hiệu Suất
+
+- [ ] Ngày 85: Thêm lớp đệm Redis cho phản hồi API (endpoint GET). Kết quả: middleware đệm
+- [ ] Ngày 86: Triển khai chiến lược hủy đệm (TTL, hủy thủ công). Kết quả: chiến lược đệm
+- [ ] Ngày 87: Tối ưu truy vấn SQL chậm (EXPLAIN ANALYZE, thêm chỉ mục). Kết quả: truy vấn nhanh hơn
+- [ ] Ngày 88: Thêm chỉ mục database vào cột thường truy vấn. Kết quả: chỉ mục được tạo
+- [ ] Ngày 89: Triển khai phân trang dựa trên con trỏ cho tập dữ liệu lớn. Kết quả: phân trang hiệu quả
+- [ ] Ngày 90: Phân tích gói frontend (webpack-bundle-analyzer) + chia tách mã. Kết quả: gói nhỏ hơn
+- [ ] Ngày 91: **KIỂM TRA TUẦN**: Chạy benchmark trước/sau, ghi nhận cải thiện. Kết quả: báo cáo benchmark
+
+### TUẦN 27-28: Test Tải + Mở Rộng
+
+- [ ] Ngày 92: Cài k6. Viết script test tải cho endpoint API. Kết quả: script k6
+- [ ] Ngày 93: Chạy test tải: 100 người dùng đồng thời, 30 phút. Phân tích kết quả. Kết quả: kết quả test tải
+- [ ] Ngày 94: Xác định nút cổ chai, sửa 3 vấn đề hiệu suất hàng đầu. Kết quả: nút cổ chai được sửa
+- [ ] Ngày 95: Test đường ống với batch 100K bản ghi. Đo thông lượng. Kết quả: đường ống mở rộng
+- [ ] Ngày 96: Test WebSocket với 500 kết nối đồng thời. Đo độ trễ. Kết quả: WS mở rộng
+- [ ] Ngày 97: Ghi nhận chiến lược mở rộng (ngang, dọc, bản sao đọc). Kết quả: tài liệu mở rộng
+- [ ] Ngày 98: **KIỂM TRA TUẦN**: Mục tiêu: P95 < 500ms, 1000 RPS. Ghi nhận kết quả. Kết quả: đạt mục tiêu
+
+### TUẦN 29-30: Thiết Kế Hệ Thống
+
+- [ ] Ngày 99: Vẽ sơ đồ kiến trúc hiện tại (draw.io/Excalidraw). Kết quả: kiến trúc v1
+- [ ] Ngày 100: Ghi nhận luồng dữ liệu: nguồn → webhook/API → đường ống → DB → bảng. Kết quả: tài liệu luồng
+- [ ] Ngày 101: Viết 5 Ghi Nhận Quyết Định Kiến Trúc (định dạng ADR). Kết quả: 5 ADR
+- [ ] Ngày 102: Nghiên cứu: Kafka vs RabbitMQ cho sự kiện dữ liệu. Viết tài liệu so sánh. Kết quả: tài liệu so sánh
+- [ ] Ngày 103: Thiết kế chiến lược mở rộng ngang (load balancer, dịch vụ không trạng thái). Kết quả: thiết kế mở rộng
+- [ ] Ngày 104: Thiết kế kế hoạch khôi phục thảm họa (Sao lưu, khôi phục, RTO/RPO). Kết quả: tài liệu DR
+- [ ] Ngày 105: **KIỂM TRA TUẦN**: Trình bày kiến trúc với đồng nghiệp/giáo viên, thu thập phản hồi. Kết quả: xem xét xong
+
+### TUẦN 31-32: Tăng Cường Bảo Mật
+
+- [ ] Ngày 106: Kiểm toán: kiểm tra lỗ hổng OWASP Top 10 trong ứng dụng. Kết quả: danh sách kiểm tra
+- [ ] Ngày 107: Thêm giới hạn tốc độ cho API (slowapi/redis). Kết quả: bộ giới hạn tốc độ
+- [ ] Ngày 108: Thêm chính sách CORS, tiêu đề CSP, HSTS. Kết quả: tiêu đề bảo mật
+- [ ] Ngày 109: Triển khai làm sạch đầu vào (bleach, bộ xác thực tùy chỉnh). Kết quả: làm sạch
+- [ ] Ngày 110: Xác nhận bảo vệ tiêm SQL (truy vấn tham số hóa ở mọi nơi). Kết quả: an toàn SQLi
+- [ ] Ngày 111: Thêm quản lý bí mật (biến môi trường, không hardcode). Kết quả: bí mật được quản lý
+- [ ] Ngày 112: **KIỂM TRA TUẦN**: Chạy quét bảo mật (safety, trivy, eslint-security), sửa lỗi. Kết quả: kiểm toán xong
 
 ---
 
-## 🛑 RULES
+## 📊 GIAI ĐOẠN 4: LÃNH ĐẠO + HỒ SƠ (THÁNG 6)
 
-1. **No skipping days** - 4h minimum, even if tired
-2. **Commit daily** - every day ends with `git push`
-3. **Build > Watch** - code first, tutorial only when stuck >30min
-4. **Bug > Tutorial** - if stuck, debug/search, don't rewatch
-5. **Sunday = Review** - review week, adjust plan, rest
-6. **Track everything** - daily report mandatory
-7. **Ship > Perfect** - done is better than perfect
-8. **No excuses** - if you miss a day, double the next day
+### TUẦN 33-34: Viết Kỹ Thuật (3 Bài Blog)
+
+- [ ] Ngày 113: Viết Blog 1: "Xây Bảng Điều Khiển Dữ Liệu với Next.js + FastAPI". Kết quả: nháp blog 1
+- [ ] Ngày 114: Chỉnh sửa + xuất bản Blog 1 trên Dev.to/Medium. Kết quả: blog 1 trực tuyến (chia sẻ LinkedIn)
+- [ ] Ngày 115: Viết Blog 2: "Đường Ống Dữ Liệu Thời Gian Thực với Kafka + WebSocket". Kết quả: nháp blog 2
+- [ ] Ngày 116: Chỉnh sửa + xuất bản Blog 2. Kết quả: blog 2 trực tuyến
+- [ ] Ngày 117: Viết Blog 3: "Giám Sát Dịch Vụ Tiểu với Prometheus + Grafana". Kết quả: nháp blog 3
+- [ ] Ngày 118: Chỉnh sửa + xuất bản Blog 3. Kết quả: blog 3 trực tuyến
+- [ ] Ngày 119: **KIỂM TRA TUẦN**: 3 blog xuất bản, chia sẻ LinkedIn/Twitter, thu thập phản hồi. Kết quả: hồ sơ tăng
+
+### TUẦN 35-36: Tài Liệu
+
+- [ ] Ngày 120: Viết tài liệu API (Swagger/OpenAPI tự động). Kết quả: tài liệu API trực tuyến
+- [ ] Ngày 121: Viết hướng dẫn triển khai (yêu cầu, bước, biến môi trường). Kết quả: hướng dẫn triển khai
+- [ ] Ngày 122: Viết hướng dẫn xử lý lỗi (lỗi thường gặp, giải pháp). Kết quả: tài liệu xử lý lỗi
+- [ ] Ngày 123: Tạo danh sách kiểm tra onboarding cho nhà phát triển mới. Kết quả: tài liệu onboarding
+- [ ] Ngày 124: Ghi nhận mô hình dữ liệu + quan hệ (sơ đồ ER). Kết quả: tài liệu mô hình
+- [ ] Ngày 125: Quay video demo 5 phút của nền tảng đầy đủ (Loom/OBS). Kết quả: video demo
+- [ ] Ngày 126: **KIỂM TRA TUẦN**: Tài liệu xong, repo chuyên nghiệp, README hoàn thiện. Kết quả: tài liệu xong
+
+### TUẦN 37-38: Chuẩn Bị Mentoring + Xem Xét Mã
+
+- [ ] Ngày 127: Tạo hướng dẫn: "Thiết lập dự án cục bộ trong 10 phút". Kết quả: hướng dẫn
+- [ ] Ngày 128: Thêm chú thích inline vào phần mã phức tạp (đường ống, xác thực). Kết quả: mã có chú thích
+- [ ] Ngày 129: Tạo danh sách kiểm tra xem xét mã (đặt tên, test, xử lý lỗi, bảo mật). Kết quả: danh sách xem xét
+- [ ] Ngày 130: Thực hành xem xét 3 PR mã nguồn mở (GitHub). Kết quả: xem xét PR xong
+- [ ] Ngày 131: Viết tài liệu "Sai lầm thường gặp trong nền tảng dữ liệu". Kết quả: tài liệu sai lầm
+- [ ] Ngày 132: Tạo hướng dẫn chuẩn bị phỏng vấn cho vai trò này (câu hỏi, câu trả lời, dự án). Kết quả: hướng dẫn phỏng vấn
+- [ ] Ngày 133: **KIỂM TRA TUẦN**: Gói sẵn sàng cho mentoring junior, chia sẻ cộng đồng. Kết quả: bộ mentoring
+
+### TUẦN 39-40: Gói Thăng Chức + Hoàn Thiện Cuối
+
+- [ ] Ngày 134: Liệt kê tất cả tính năng xây + chỉ số tác động (hiệu suất, độ chính xác, thời gian hoạt động). Kết quả: danh sách tác động
+- [ ] Ngày 135: Ghi nhận cải thiện chất lượng mã (phủ %, PR xem xét, lỗi sửa). Kết quả: tài liệu chất lượng
+- [ ] Ngày 136: Chuẩn bị bài thuyết trình thiết kế hệ thống (slide, sơ đồ, đánh đổi). Kết quả: bộ slide
+- [ ] Ngày 137: Viết tự đánh giá + khu vực phát triển + mục tiêu năm sau. Kết quả: tự đánh giá
+- [ ] Ngày 138: Thu thập phản hồi đồng nghiệp (khảo sát 3 người: điểm mạnh, cải thiện). Kết quả: phản hồi
+- [ ] Ngày 139: Chuẩn bị bảo vệ thăng chức (lộ trình nói, chuẩn bị Q&A). Kết quả: bảo vệ sẵn sàng
+- [ ] Ngày 140: **KIỂM TRA TUẦN**: Hoàn thành gói thăng chức, ăn mừng, lập kế hoạch năm sau. Kết quả: gói xong
 
 ---
 
-> "The best way to predict the future is to build it."
-> _Review every Sunday. Execute every day. Ship code daily._
+## 🏆 MỤC TIÊU CUỐI CÙNG (Tháng 6)
+
+- [ ] Ứng dụng fullstack: Next.js + FastAPI + PostgreSQL + Redis + Kafka
+- [ ] Bảng điều khiển thời gian thực với biểu đồ, bộ lọc, thu thập dữ liệu
+- [ ] Đóng hộp Docker với docker-compose
+- [ ] Pipeline CI/CD (GitHub Actions)
+- [ ] Giám sát (Prometheus + Grafana)
+- [ ] Nhật ký (ELK Stack)
+- [ ] Test tải (1000 RPS, P95 < 500ms)
+- [ ] 3 bài blog kỹ thuật xuất bản
+- [ ] Tài liệu hoàn chỉnh
+- [ ] Gói thăng chức sẵn sàng
+
+---
+
+## 🛑 QUY TẮC
+
+1. **Không bỏ ngày** — tối thiểu 4h, dù mệt
+2. **Commit hàng ngày** — mỗi ngày kết thúc bằng `git push`
+3. **Xây > Xem** — code trước, xem hướng dẫn chỉ khi bị kẹt >30 phút
+4. **Lỗi > Hướng Dẫn** — nếu kẹt, gỡ lỗi/tìm kiếm, đừng xem lại
+5. **Chủ Nhật = Kiểm Tra** — xem xét tuần, điều chỉnh kế hoạch, nghỉ
+6. **Theo dõi mọi thứ** — báo cáo hàng ngày bắt buộc
+7. **Giao > Hoàn Hảo** — xong tốt hơn hoàn hảo
+8. **Không bào chữa** — nếu bỏ ngày, nhân đôi ngày tiếp theo
+
+---
+
+> "Cách tốt nhất để dự đoán tương lai là xây dựng nó."
+> _Kiểm tra mỗi Chủ Nhật. Thực thi mỗi ngày. Giao mã hàng ngày._

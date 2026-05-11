@@ -1,253 +1,292 @@
-# Troubleshooting Guide - Data Platform
+# Hướng Dẫn Xử Lý Lỗi - Nền Tảng Dữ Liệu
 
 ---
 
-## Database Issues
+## Lỗi Database
 
-### PostgreSQL won't start in Docker
-**Symptom:** `dp_postgres` container keeps restarting.
-**Cause:** Corrupted data volume or permission issue.
-**Fix:**
+### PostgreSQL không khởi động trong Docker
+
+**Triệu Chứng:** Container `dp_postgres` liên tục khởi động lại.
+**Nguyên Nhân:** Volume dữ liệu hỏng hoặc lỗi quyền.
+**Sửa:**
+
 ```bash
-# Backup first, then reset volume
+# Sao lưu trước, sau đó reset volume
 docker-compose down -v
 docker-compose up -d postgres
 ```
 
-### Connection refused to PostgreSQL
-**Symptom:** `could not connect to server: Connection refused`
-**Cause:** Database not healthy yet or wrong connection string.
-**Fix:**
+### Từ chối kết nối PostgreSQL
+
+**Triệu Chứng:** `could not connect to server: Connection refused`
+**Nguyên Nhân:** Database chưa sẵn sàng hoặc chuỗi kết nối sai.
+**Sửa:**
+
 ```bash
-# Check container status
+# Kiểm tra trạng thái container
 docker-compose ps postgres
-# Verify DATABASE_URL in .env
+# Kiểm tra DATABASE_URL trong .env
 echo $DATABASE_URL
-# Should be: postgresql://admin:password123@localhost:5432/data_platform
+# Phải là: postgresql://admin:password123@localhost:5432/data_platform
 ```
 
-### "FATAL: too many connections"
-**Symptom:** Application can't connect after running for a while.
-**Cause:** Connection leak or pool exhaustion.
-**Fix:**
+### "FATAL: quá nhiều kết nối"
+
+**Triệu Chứng:** Ứng dụng không kết nối được sau một thời gian chạy.
+**Nguyên Nhân:** Rò rỉ kết nối hoặc hết pool.
+**Sửa:**
+
 ```sql
--- Check active connections
+-- Kiểm tra kết nối đang hoạt động
 SELECT count(*) FROM pg_stat_activity;
 
--- Kill idle connections
-SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state = 'idle' AND duration > interval '5 minutes';
+-- Đứt kết nối idle
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE state = 'idle' AND duration > interval '5 phút';
 ```
 
 ---
 
-## Redis Issues
+## Lỗi Redis
 
-### Redis connection refused
-**Symptom:** `Error: connect ECONNREFUSED 127.0.0.1:6379`
-**Cause:** Redis container not running.
-**Fix:**
+### Redis từ chối kết nối
+
+**Triệu Chứng:** `Error: connect ECONNREFUSED 127.0.0.1:6379`
+**Nguyên Nhân:** Container Redis không chạy.
+**Sửa:**
+
 ```bash
 docker-compose up -d redis
 docker-compose logs redis
 ```
 
-### Celery can't connect to Redis broker
-**Symptom:** Tasks stay in PENDING state forever.
-**Cause:** Wrong broker URL or Redis not accessible from backend container.
-**Fix:**
+### Celery không kết nối được Redis broker
+
+**Triệu Chứng:** Tác vụ mãi ở trạng thái PENDING.
+**Nguyên Nhân:** URL broker sai hoặc Redis không truy cập từ container backend.
+**Sửa:**
+
 ```bash
-# In Docker, use service name instead of localhost
+# Trong Docker, dùng tên dịch vụ thay vì localhost
 CELERY_BROKER_URL=redis://redis:6379/1
 ```
 
 ---
 
-## Kafka Issues
+## Lỗi Kafka
 
-### Kafka producer can't connect
-**Symptom:** `org.apache.kafka.common.errors.TimeoutException`
-**Cause:** Wrong broker address in Docker network.
-**Fix:**
+### Kafka producer không kết nối được
+
+**Triệu Chứng:** `org.apache.kafka.common.errors.TimeoutException`
+**Nguyên Nhân:** Địa chỉ broker sai trong mạng Docker.
+**Sửa:**
+
 ```bash
-# Inside Docker containers, use:
+# Bên trong container Docker, dùng:
 KAFKA_BROKER=kafka:9092
 
-# From host machine, use:
+# Từ máy chủ, dùng:
 KAFKA_BROKER=localhost:29092
 ```
 
-### Kafka topics not auto-created
-**Symptom:** `NoTopicException: Topic does not exist`
-**Cause:** `auto.create.topics.enable` is false.
-**Fix:** Ensure `KAFKA_AUTO_CREATE_TOPICS_ENABLE=true` in docker-compose.yml.
+### Topic Kafka không tự động tạo
+
+**Triệu Chứng:** `NoTopicException: Topic does not exist`
+**Nguyên Nhân:** `auto.create.topics.enable` đang false.
+**Sửa:** Đảm bảo `KAFKA_AUTO_CREATE_TOPICS_ENABLE=true` trong docker-compose.yml.
 
 ---
 
-## Frontend Issues
+## Lỗi Frontend
 
-### Next.js module not found
-**Symptom:** `Cannot find module 'xxx'`
-**Cause:** Missing dependency or corrupted node_modules.
-**Fix:**
+### Next.js không tìm thấy module
+
+**Triệu Chứng:** `Cannot find module 'xxx'`
+**Nguyên Nhân:** Thiếu dependency hoặc node_modules hỏng.
+**Sửa:**
+
 ```bash
 rm -rf node_modules package-lock.json
 npm install
 ```
 
-### API calls fail with CORS error
-**Symptom:** `Access to fetch has been blocked by CORS policy`
-**Cause:** Backend CORS middleware not configured or wrong origin.
-**Fix:** Add to FastAPI:
+### Gọi API thất bại do CORS
+
+**Triệu Chứng:** `Access to fetch has been blocked by CORS policy`
+**Nguyên Nhân:** Middleware CORS backend chưa cấu hình hoặc sai origin.
+**Sửa:** Thêm vào FastAPI:
+
 ```python
 from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3001"])
 ```
 
-### WebSocket connection fails
-**Symptom:** `WebSocket connection to 'ws://localhost:8000/ws' failed`
-**Cause:** Backend WebSocket endpoint not running or blocked by proxy.
-**Fix:**
+### Kết nối WebSocket thất bại
+
+**Triệu Chứng:** `WebSocket connection to 'ws://localhost:8000/ws' failed`
+**Nguyên Nhân:** Endpoint WebSocket backend không chạy hoặc bị proxy chặn.
+**Sửa:**
+
 ```bash
-# Check backend is running
+# Kiểm tra backend đang chạy
 curl http://localhost:8000/health
-# Verify WS URL matches backend
+# Kiểm tra URL WS khớp với backend
 ```
 
 ---
 
-## Docker Issues
+## Lỗi Docker
 
-### Port already in use
-**Symptom:** `Bind for 0.0.0.0:5432 failed: port is already allocated`
-**Cause:** Another service using the same port.
-**Fix:**
+### Cổng đã được sử dụng
+
+**Triệu Chứng:** `Bind for 0.0.0.0:5432 failed: port is already allocated`
+**Nguyên Nhân:** Dịch vụ khác đang dùng cùng cổng.
+**Sửa:**
+
 ```bash
-# Find what's using the port
+# Tìm tiến trình đang dùng cổng
 netstat -ano | findstr :5432
-# Either kill the process or change the port mapping in docker-compose.yml
-# Change "5432:5432" to "15432:5432"
+# Hoặc kill tiến trình hoặc đổi ánh xạ cổng trong docker-compose.yml
+# Đổi "5432:5432" thành "15432:5432"
 ```
 
-### Docker-compose services can't reach each other
-**Symptom:** `Name or service not known` between containers.
-**Cause:** Containers not on same network.
-**Fix:** Ensure all services use `dp_network` in docker-compose.yml. Use service name as hostname (e.g., `postgres`, `redis`, `kafka`).
+### Dịch vụ docker-compose không đạt được nhau
 
-### Docker images take too much disk space
-**Symptom:** Docker disk usage > 50GB.
-**Fix:**
+**Triệu Chứng:** `Name or service not known` giữa các container.
+**Nguyên Nhân:** Container không cùng mạng.
+**Sửa:** Đảm bảo tất cả dịch vụ dùng `dp_network` trong docker-compose.yml. Dùng tên dịch vụ làm hostname (ví dụ: `postgres`, `redis`, `kafka`).
+
+### Hình ảnh Docker chiếm nhiều dung lượng
+
+**Triệu Chứng:** Docker dùng > 50GB đĩa.
+**Sửa:**
+
 ```bash
-# Clean unused resources
+# Dọn tài nguyên không dùng
 docker system prune -a --volumes
-# Build with multi-stage Dockerfiles to reduce image size
+# Xây với Dockerfile nhiều giai đoạn để giảm kích thước
 ```
 
 ---
 
-## Monitoring Issues
+## Lỗi Giám Sát
 
-### Grafana can't connect to Prometheus
-**Symptom:** "No datasources" or connection error in Grafana.
-**Cause:** Wrong Prometheus URL.
-**Fix:** In Grafana datasource settings, use: `http://prometheus:9090` (Docker) or `http://localhost:9090` (browser).
+### Grafana không kết nối được Prometheus
 
-### Prometheus not scraping metrics
-**Symptom:** Empty graphs in Grafana.
-**Cause:** Backend `/metrics` endpoint not reachable.
-**Fix:** Verify `prometheus.yml` scrape config:
+**Triệu Chứng:** "No datasources" hoặc lỗi kết nối trong Grafana.
+**Nguyên Nhân:** URL Prometheus sai.
+**Sửa:** Trong cài đặt datasource Grafana, dùng: `http://prometheus:9090` (Docker) hoặc `http://localhost:9090` (trình duyệt).
+
+### Prometheus không thu thập chỉ số
+
+**Triệu Chứng:** Đồ thị trống trong Grafana.
+**Nguyên Nhân:** Endpoint `/metrics` của backend không đạt được.
+**Sửa:** Kiểm tra cấu hình scrape trong `prometheus.yml`:
+
 ```yaml
 scrape_configs:
   - job_name: 'backend'
     static_configs:
-      - targets: ['backend:8000']  # Use service name in Docker
+      - targets: ['backend:8000'] # Dùng tên dịch vụ trong Docker
 ```
 
-### ELK Stack - No logs in Kibana
-**Symptom:** Kibana Discovery shows no data.
-**Cause:** Logstash not receiving logs or index pattern not created.
-**Fix:**
+### ELK Stack - Không có nhật ký trong Kibana
+
+**Triệu Chứng:** Kibana Discovery hiển thị không có dữ liệu.
+**Nguyên Nhân:** Logstash không nhận nhật ký hoặc chưa tạo index pattern.
+**Sửa:**
+
 ```bash
-# Check Logstash is running
+# Kiểm tra Logstash đang chạy
 docker-compose logs logstash
-# Create index pattern in Kibana: logstash-*
-# Verify app sends logs to Logstash port 5000
+# Tạo index pattern trong Kibana: logstash-*
+# Kiểm tra ứng dụng gửi nhật ký đến cổng Logstash 5000
 ```
 
 ---
 
-## Performance Issues
+## Lỗi Hiệu Suất
 
-### API responses are slow (> 2s)
-**Diagnosis Steps:**
-1. Check database queries: `EXPLAIN ANALYZE <your_query>`
-2. Check if indexes exist on filtered columns
-3. Enable Redis caching for GET endpoints
-4. Check Grafana for slow endpoints
+### Phản hồi API chậm (> 2s)
 
-**Quick Fixes:**
+**Bước Chẩn Đoán:**
+
+1. Kiểm tra truy vấn database: `EXPLAIN ANALYZE <truy_van>`
+2. Kiểm tra chỉ mục tồn tại trên cột lọc
+3. Bật đệm Redis cho endpoint GET
+4. Kiểm tra Grafana tìm endpoint chậm
+
+**Sửa Nhanh:**
+
 ```sql
--- Add indexes to frequently queried columns
+-- Thêm chỉ mục vào cột thường truy vấn
 CREATE INDEX IF NOT EXISTS idx_records_source_id ON data_records(source_id);
 CREATE INDEX IF NOT EXISTS idx_records_timestamp ON data_records(timestamp);
 ```
 
-### Dashboard loads slowly
-**Cause:** Too much data fetched at once.
-**Fix:** Implement pagination, limit date range, add Redis caching.
+### Bảng điều khiển tải chậm
+
+**Nguyên Nhân:** Lấy quá nhiều dữ liệu cùng lúc.
+**Sửa:** Áp dụng phân trang, giới hạn khoảng ngày, thêm đệm Redis.
 
 ---
 
-## Security Issues
+## Lỗi Bảo Mật
 
-### JWT token expired
-**Symptom:** All API calls return 401.
-**Fix:** Re-login to get a new token. Check token expiry time in `.env`.
+### Token JWT hết hạn
 
-### Rate limiter blocking requests
-**Symptom:** HTTP 429 Too Many Requests.
-**Cause:** Exceeded rate limit (default: 100 req/min per IP).
-**Fix:** Wait for reset or increase limit in FastAPI config.
+**Triệu Chứng:** Tất cả gọi API trả về 401.
+**Sửa:** Đăng nhập lại để nhận token mới. Kiểm tra thời gian hết hạn trong `.env`.
+
+### Bộ giới hạn tốc độ chặn yêu cầu
+
+**Triệu Chứng:** HTTP 429 Too Many Requests.
+**Nguyên Nhân:** Vượt giới hạn (mặc định: 100 req/phút/IP).
+**Sửa:** Đợi reset hoặc tăng giới hạn trong cấu hình FastAPI.
 
 ---
 
-## Development Workflow
+## Quy Trình Phát Triển
 
-### Reset entire environment
+### Reset toàn bộ môi trường
+
 ```bash
-# WARNING: This deletes all data!
+# CẢNH BÁO: Xóa tất cả dữ liệu!
 docker-compose down -v
 docker-compose up -d
 ```
 
-### View all service logs
+### Xem nhật ký tất cả dịch vụ
+
 ```bash
 docker-compose logs -f
-# Or specific service
+# Hoặc dịch vụ cụ thể
 docker-compose logs -f backend
 ```
 
-### Rebuild a single service
+### Xây lại một dịch vụ
+
 ```bash
 docker-compose up -d --build backend
 ```
 
 ---
 
-## Quick Health Check Script
+## Script Kiểm Tra Sức Khỏe Nhanh
 
 ```bash
-# Check all services
-echo "=== Service Status ==="
+# Kiểm tra tất cả dịch vụ
+echo "=== Trạng Thái Dịch Vụ ==="
 docker-compose ps
 
-echo -e "\n=== Backend Health ==="
+echo -e "\n=== Sức Khỏe Backend ==="
 curl -s http://localhost:8000/health
 
 echo -e "\n=== Redis Ping ==="
 docker exec dp_redis redis-cli ping
 
-echo -e "\n=== PostgreSQL Status ==="
+echo -e "\n=== Trạng Thái PostgreSQL ==="
 docker exec dp_postgres pg_isready
 
-echo -e "\n=== Kafka Topics ==="
-docker exec dp_kafka kafka-topics.sh --bootstrap-server kafka:9092 --list
+echo -e "\n=== Topic Kafka ==="
+docker exec dp_kafka kafka-topics.sh --bootstrap-server kafka:9092 --list [EOF]
+```

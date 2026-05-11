@@ -1,4 +1,4 @@
-## 📅 TASK: YYYY-MM-DD (Day XX)
+# 📅 TASK: YYYY-MM-DD (Day XX)
 
 **Mục tiêu**: [Tên task trong Roadmap, ví dụ: Setup Next.js app]
 **Yêu cầu**: [Yêu cầu cụ thể, ví dụ: Dùng App Router, TS, Tailwind]
