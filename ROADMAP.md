@@ -12,7 +12,7 @@
 
 ### TUẦN 1-2: Next.js + TypeScript + Giao Diện Bảng Điều Khiển
 
-- [ ] Ngày 1: Cài Node.js, VS Code, tạo ứng dụng Next.js 14 (App Router + TypeScript). Kết quả: repo `data-platform/` khởi tạo xong
+- [x] Ngày 1: Cài Node.js, VS Code, tạo ứng dụng Next.js 14 (App Router + TypeScript). Kết quả: repo `data-platform/` khởi tạo xong ✅
 - [ ] Ngày 2: Xây vỏ giao diện: thanh điều hướng, thanh bên, khu vực nội dung chính. Kết quả: vỏ UI hoạt động
 - [ ] Ngày 3: Cài Tailwind CSS + shadcn/ui. Xây 3 thành phần: Bảng, Thẻ, Nút. Kết quả: 3 thành phần tái sử dụng
 - [ ] Ngày 4: Xây trang bảng điều khiển giả lập với 4 thẻ KPI (CAC, ROAS, Users, Revenue). Kết quả: trang KPI
